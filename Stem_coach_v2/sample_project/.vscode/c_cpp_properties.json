@@ -1,0 +1,33 @@
+{
+    "configurations": [
+        {
+            "name": "ESP-IDF",
+            "compilerPath": "d:\\user\\Robin\\.espressif\\tools\\xtensa-esp32-elf\\esp-12.2.0_20230208\\xtensa-esp32-elf\\bin\\xtensa-esp32-elf-gcc.exe",
+            "includePath": [
+                "${config:idf.espIdfPath}/components/**",
+                "${config:idf.espIdfPathWin}/components/**",
+                "${config:idf.espAdfPath}/components/**",
+                "${config:idf.espAdfPathWin}/components/**",
+                "${workspaceFolder}/**",
+                "D:/user/Robin/esp/esp-idf/components/freertos/FreeRTOS-Kernel-SMP/include",
+                "D:/user/Robin/esp/esp-idf/components/driver/gpio/include",
+                "D:/user/Robin/esp/esp-idf/components/freertos/esp_additions/include/freertos",
+                "${workspaceFolder}/main/hardware_drivers",
+                "${workspaceFolder}/main/helper_functions",
+                "${workspaceFolder}/main",
+                "D:/user/Robin/esp/esp-idf/components/esp_timer/include"
+            ],
+            "browse": {
+                "path": [
+                    "${config:idf.espIdfPath}/components",
+                    "${config:idf.espIdfPathWin}/components",
+                    "${config:idf.espAdfPath}/components/**",
+                    "${config:idf.espAdfPathWin}/components/**",
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": false
+            }
+        }
+    ],
+    "version": 4
+}

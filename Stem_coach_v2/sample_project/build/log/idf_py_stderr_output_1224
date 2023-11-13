@@ -1,0 +1,26 @@
+fatal: detected dubious ownership in repository at 'D:/user/Robin/esp/esp-idf'
+'D:/user/Robin/esp/esp-idf' is owned by:
+	'S-1-5-32-544'
+but the current user is:
+	'S-1-5-21-4082888296-1425306236-4072728671-1003'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory D:/user/Robin/esp/esp-idf
+Compiler supported targets: xtensa-esp32-elf
+
+fatal: detected dubious ownership in repository at 'D:/user/Robin/esp/esp-idf'
+'D:/user/Robin/esp/esp-idf' is owned by:
+	'S-1-5-32-544'
+but the current user is:
+	'S-1-5-21-4082888296-1425306236-4072728671-1003'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory D:/user/Robin/esp/esp-idf
+fatal: detected dubious ownership in repository at 'D:/user/Robin/esp/esp-idf/components/openthread/openthread'
+'D:/user/Robin/esp/esp-idf/components/openthread/openthread/.git' is owned by:
+	'S-1-5-32-544'
+but the current user is:
+	'S-1-5-21-4082888296-1425306236-4072728671-1003'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory D:/user/Robin/esp/esp-idf/components/openthread/openthread
