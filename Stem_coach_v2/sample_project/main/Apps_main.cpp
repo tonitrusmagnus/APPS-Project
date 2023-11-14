@@ -29,7 +29,6 @@
 #include "microphone/microphone_i2s.hpp"
 #include "microphone/signalprocessing.hpp"
 #include "software_drivers/uart.hpp"
-#include "software_drivers/handler.hpp"
 #include "statemachine.hpp"
 #include "helper_functions/defines.hpp"
 
@@ -143,7 +142,6 @@ void task_process_audio(void *params)
 			vTaskDelay(10 / portTICK_PERIOD_MS); // Wait 10ms until audio is ready for processing.
 			break;
 		}
-		//_Handler.handle(dB,Hz,dBAverage,HzAverage);
 	}
 }
 
@@ -152,7 +150,7 @@ void task_run_statemachine(void *params)
 	while (true)
 	{
 		statemachine(&_dataReady, volumeValue, frequencyValue);	
-    	//ESP_LOGI("Current Task:", "run statemachine");
-		// statemachine();
+    	//ESP_LOGI("Current Task:", "statemachine running");
+    	vTaskDelay(10 / portTICK_PERIOD_MS);
 	}
 }

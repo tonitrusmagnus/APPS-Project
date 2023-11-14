@@ -44,7 +44,7 @@ bool MP3Driver::init(gpio_num_t TxPin, gpio_num_t RxPin, uart_port_t UartNum_) {
 
 void MP3Driver::play(char folderNr, char trackNr) {
     
-    sendData(MP3_PLAY_TRACK, folderNr, trackNr);
+    sendData(MP3_PLAY_FOLDER, folderNr, trackNr);
 }
 
 void MP3Driver::stopMP3() {

@@ -488,3 +488,381 @@ cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:
 
 
 
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_b0457.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b0457.dir\Debug\\" /Fd"cmTC_b0457.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address "D:\user\Robin\.espressif\tools\cmake\3.24.0\share\cmake-3.24\Modules\CMakeCCompilerABI.c"
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_b0457.vcxproj]
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_973cc.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_973cc.dir\Debug\\" /Fd"cmTC_973cc.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\testCCompiler.c
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_973cc.vcxproj]
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_83ca2.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_83ca2.dir\Debug\\" /Fd"cmTC_83ca2.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address "D:\user\Robin\.espressif\tools\cmake\3.24.0\share\cmake-3.24\Modules\CMakeCCompilerABI.c"
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_83ca2.vcxproj]
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_7f54a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7f54a.dir\Debug\\" /Fd"cmTC_7f54a.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\testCCompiler.c
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_7f54a.vcxproj]
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_28259.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_28259.dir\Debug\\" /Fd"cmTC_28259.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address "D:\user\Robin\.espressif\tools\cmake\3.24.0\share\cmake-3.24\Modules\CMakeCCompilerABI.c"
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_28259.vcxproj]
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_05062.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_05062.dir\Debug\\" /Fd"cmTC_05062.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\testCCompiler.c
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_05062.vcxproj]
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_b6ac1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b6ac1.dir\Debug\\" /Fd"cmTC_b6ac1.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address "D:\user\Robin\.espressif\tools\cmake\3.24.0\share\cmake-3.24\Modules\CMakeCCompilerABI.c"
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_b6ac1.vcxproj]
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_904b9.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_904b9.dir\Debug\\" /Fd"cmTC_904b9.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\testCCompiler.c
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_904b9.vcxproj]
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_cc277.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_cc277.dir\Debug\\" /Fd"cmTC_cc277.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address "D:\user\Robin\.espressif\tools\cmake\3.24.0\share\cmake-3.24\Modules\CMakeCCompilerABI.c"
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_cc277.vcxproj]
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_6852f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_6852f.dir\Debug\\" /Fd"cmTC_6852f.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\testCCompiler.c
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_6852f.vcxproj]
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_e9e2a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e9e2a.dir\Debug\\" /Fd"cmTC_e9e2a.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address "D:\user\Robin\.espressif\tools\cmake\3.24.0\share\cmake-3.24\Modules\CMakeCCompilerABI.c"
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_e9e2a.vcxproj]
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_7f14d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7f14d.dir\Debug\\" /Fd"cmTC_7f14d.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\testCCompiler.c
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_7f14d.vcxproj]
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_9f568.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9f568.dir\Debug\\" /Fd"cmTC_9f568.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address "D:\user\Robin\.espressif\tools\cmake\3.24.0\share\cmake-3.24\Modules\CMakeCCompilerABI.c"
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_9f568.vcxproj]
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_4881a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4881a.dir\Debug\\" /Fd"cmTC_4881a.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\testCCompiler.c
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_4881a.vcxproj]
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_9b00b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9b00b.dir\Debug\\" /Fd"cmTC_9b00b.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address "D:\user\Robin\.espressif\tools\cmake\3.24.0\share\cmake-3.24\Modules\CMakeCCompilerABI.c"
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_9b00b.vcxproj]
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_d069f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d069f.dir\Debug\\" /Fd"cmTC_d069f.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\testCCompiler.c
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_d069f.vcxproj]
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_d4e1c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d4e1c.dir\Debug\\" /Fd"cmTC_d4e1c.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address "D:\user\Robin\.espressif\tools\cmake\3.24.0\share\cmake-3.24\Modules\CMakeCCompilerABI.c"
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_d4e1c.vcxproj]
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_0cd36.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0cd36.dir\Debug\\" /Fd"cmTC_0cd36.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\testCCompiler.c
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_0cd36.vcxproj]
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_f23a3.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f23a3.dir\Debug\\" /Fd"cmTC_f23a3.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address "D:\user\Robin\.espressif\tools\cmake\3.24.0\share\cmake-3.24\Modules\CMakeCCompilerABI.c"
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_f23a3.vcxproj]
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_d06e0.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d06e0.dir\Debug\\" /Fd"cmTC_d06e0.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\testCCompiler.c
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_d06e0.vcxproj]
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_ce439.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ce439.dir\Debug\\" /Fd"cmTC_ce439.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address "D:\user\Robin\.espressif\tools\cmake\3.24.0\share\cmake-3.24\Modules\CMakeCCompilerABI.c"
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_ce439.vcxproj]
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_18138.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_18138.dir\Debug\\" /Fd"cmTC_18138.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\testCCompiler.c
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_18138.vcxproj]
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_511fe.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_511fe.dir\Debug\\" /Fd"cmTC_511fe.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address "D:\user\Robin\.espressif\tools\cmake\3.24.0\share\cmake-3.24\Modules\CMakeCCompilerABI.c"
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_511fe.vcxproj]
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_5213b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5213b.dir\Debug\\" /Fd"cmTC_5213b.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\testCCompiler.c
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_5213b.vcxproj]
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_dfe54.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_dfe54.dir\Debug\\" /Fd"cmTC_dfe54.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address "D:\user\Robin\.espressif\tools\cmake\3.24.0\share\cmake-3.24\Modules\CMakeCCompilerABI.c"
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_dfe54.vcxproj]
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_72e5c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_72e5c.dir\Debug\\" /Fd"cmTC_72e5c.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\testCCompiler.c
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_72e5c.vcxproj]
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_b8d5a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b8d5a.dir\Debug\\" /Fd"cmTC_b8d5a.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address "D:\user\Robin\.espressif\tools\cmake\3.24.0\share\cmake-3.24\Modules\CMakeCCompilerABI.c"
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_b8d5a.vcxproj]
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_c6973.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.2+25e4d540b for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29334 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /W1 /WX- /diagnostics:column /O2 /D _MBCS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c6973.dir\Debug\\" /Fd"cmTC_c6973.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue  -mlongcalls -Wno-frame-address D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\testCCompiler.c
+cl : command line error D8021: invalid numeric argument '/Wno-frame-address' [D:\user\Robin\_APPS\Stem_coach_v2\sample_project\build\CMakeFiles\CMakeTmp\cmTC_c6973.vcxproj]
+
+
+

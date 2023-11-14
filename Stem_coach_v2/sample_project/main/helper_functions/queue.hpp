@@ -15,6 +15,7 @@ public:
 
     void setLength(int length);
     void add(int value);
+    void clear();
     int latest();
     int oldest();
     float average();

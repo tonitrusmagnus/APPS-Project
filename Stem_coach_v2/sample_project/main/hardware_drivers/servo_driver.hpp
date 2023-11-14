@@ -15,18 +15,19 @@
 #define SERVO_MAX_COUNT        SERVO_COUNT_PER_MS*SERVO_MAX_PULSEWIDTH // SERVO_MAX_PULSEWIDTH*SERVO_COUNT_PER_MS
 #define SERVO_MAX_DEGREE       180  // Maximum angle in degrees
 
+#define SERVODRIVER_MIN_ANGLE 0
+#define SERVODRIVER_MAX_ANGLE 180
+
 class Servo
 {
 private:
-    int servo_min;
-    int servo_max;
     int servo_pin;
 
 public:
-    Servo(int pin, int min_angle = 0, int max_angle = 180);
+    Servo(int pin);
     ~Servo();
 
-    void set_servo(int percentage);
+    void setAngle(int angle);
 };
 
 #endif //SERVO_DRIVER_HPP

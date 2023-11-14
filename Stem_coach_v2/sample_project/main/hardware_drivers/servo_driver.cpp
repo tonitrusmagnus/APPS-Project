@@ -1,11 +1,9 @@
 #include "servo_driver.hpp"
 #include "helper_functions/helper_functions.hpp"
 
-Servo::Servo(int pin, int min, int max)
+Servo::Servo(int pin)
 {
     servo_pin = pin;
-    servo_min = constrain(min, 0, 180);
-    servo_max = constrain(max, 0, 180);
 
     ledc_timer_config_t timer_conf;
     timer_conf.duty_resolution = LEDC_TIMER_12_BIT; // 12-bit resolution for more precise control
@@ -28,9 +26,8 @@ Servo::~Servo()
 {
 }
 
-void Servo::set_servo(int percentage) {
-    percentage = constrain(percentage,0,100);
-    int angle = map(percentage, 0, 100, servo_min, servo_max);
+void Servo::setAngle(int angle) {
+    angle = constrain(angle, SERVODRIVER_MIN_ANGLE, SERVODRIVER_MAX_ANGLE);
     int duty = (SERVO_MIN_COUNT) + ((SERVO_MAX_COUNT - SERVO_MIN_COUNT) * (angle / (SERVO_MAX_DEGREE))); //(angle * (SERVO_MAX_PULSEWIDTH - SERVO_MIN_PULSEWIDTH) / SERVO_MAX_DEGREE) + SERVO_MIN_PULSEWIDTH;
     ledc_set_duty(LEDC_HS_MODE, LEDC_HS_CH0_CHANNEL, duty);
     ledc_update_duty(LEDC_HS_MODE, LEDC_HS_CH0_CHANNEL);

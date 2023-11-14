@@ -8,9 +8,19 @@
 #include "esp_err.h"
 #include "esp_log.h"
 
-void timer_init();
-void timer_isr(void* arg);
-extern bool sec;
-extern bool skipbool;
+class Timer
+{
+private:
+    static void IRAM_ATTR timer_isr(void* arg);
+    void timer_interupt(void);
+    
+    /* data */
+public:
+    bool flag;
+    bool skip;
+    void init(int period);
+    Timer();
+    ~Timer();
+};
 
 #endif

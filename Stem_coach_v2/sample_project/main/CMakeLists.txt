@@ -6,13 +6,12 @@ idf_component_register(SRCS
                         "hardware_drivers/buttons.cpp" 
                         
                         "microphone/microphone_i2s.cpp"
-                        "microphone/signalprocessing.cpp" 
+                        "microphone/signalprocessing.cpp"
 
                         "helper_functions/queue.cpp"
                         "helper_functions/helper_functions.cpp"
                         "helper_functions/timer.cpp"
 
-                        "software_drivers/handler.cpp"
                         "software_drivers/mp3_driver.cpp" 
                         "software_drivers/uart.cpp"
 
