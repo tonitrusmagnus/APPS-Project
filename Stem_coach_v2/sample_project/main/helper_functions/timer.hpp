@@ -13,12 +13,13 @@ class Timer
 private:
     static void IRAM_ATTR timer_isr(void* arg);
     void timer_interupt(void);
-    
+    esp_timer_handle_t timer1;
+    int period;
     /* data */
 public:
     bool flag;
-    bool skip;
-    void init(int period);
+    void reset();
+    void init(int period_);
     Timer();
     ~Timer();
 };

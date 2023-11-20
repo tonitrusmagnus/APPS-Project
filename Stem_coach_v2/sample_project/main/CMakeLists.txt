@@ -1,6 +1,7 @@
 idf_component_register(SRCS 
                         "hardware_drivers/servo_driver.cpp"
                         "hardware_drivers/Led_Driver.cpp"
+                        "hardware_drivers/leds.cpp"
                         "hardware_drivers/oled.cpp"
                         "hardware_drivers/adc.cpp" 
                         "hardware_drivers/buttons.cpp" 

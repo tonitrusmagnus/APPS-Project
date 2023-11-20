@@ -5,7 +5,6 @@
 #define CALIBRATE_QUEUE_LENGTH 100
 
 enum states{setup,relax,process,feedback,calibrate};
-//enum feedbackstates{freqLow,freqGood,dBLow,dBGood};
 enum feedbackstate{volumeOnLed,frequencyOnLed};
 
 void statemachine(bool* _dataReady, int volume, int frequency);

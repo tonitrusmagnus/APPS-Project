@@ -3,14 +3,15 @@
 #include <stdio.h>
 #include <cstring>
 #include <driver/gpio.h>
+#include "leds.hpp"
 
 #pragma once 
 
 class Led_Driver
 {
 private:
-    gpio_num_t Led_Pins[8];
-    int Led_Size;
+    Leds* ledarray;
+    int ledSize;
     /* data */
 public:
     Led_Driver(gpio_num_t *number,int size);

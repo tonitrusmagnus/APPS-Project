@@ -46,7 +46,7 @@
 #define MP3_PLAY_ADVERT_FOLDER_N 0x25 //interrupt current track & play track number 001..255 from "advert1".."advert9" folder, than resume current track (may not be supported by some modules)
 
 /* request command controls */
-#define MP3_GET_STATUS           0x42 //get current stutus, see NOTE
+#define MP3_GET_STATUS           0x42 //get current stutus
 #define MP3_GET_VOL              0x43 //get current volume, range 0..30
 #define MP3_GET_EQ               0x44 //get current EQ, 0=Off, 1=Pop, 2=Rock, 3=Jazz, 4=Classic, 5=Bass (may not be supported by some modules)
 #define MP3_GET_PLAY_MODE        0x45 //get current loop mode, 0=loop all, 1=loop folder, 2=loop track, 3=random, 4=disable (may not be supported by some modules)
@@ -66,9 +66,19 @@
 #define MP3_RETURN_CODE_DONE     0x3D //track playback is is completed, module return this status automatically after the track has been played
 #define MP3_RETURN_CODE_READY    0x3F //ready after boot or reset, module return this status automatically after boot or reset
 
-// Ack
-#define MP3_ACK_RETURN           0x01
-#define MP3_ACK_DONT_RETURN      0x00
+// Feedback
+#define MP3_FEEDBACK_ENABLED     0x01 // 
+#define MP3_FEEDBACK_DISABLED    0x00 // 
+
+// Status
+#define MP3_STATUS_STOP             0x0200
+#define MP3_STATUS_PLAYING          0x0201
+#define MP3_STATUS_SLEEP_STANDBY    0x0202
+#define MP3_STATUS_ERROR            0x0002
+
+#define FEEDBACK_BYTE_AMOUNT     10
+#define FEEDBACK_COMMAND_POS     4
+#define FEEDBACK_DATA_POS        7
 
 class MP3Driver {
 public:
@@ -76,16 +86,20 @@ public:
     ~MP3Driver();
 
     // initialisers
-    bool init(gpio_num_t TxPin, gpio_num_t RxPin, uart_port_t UartNum);
+    bool init(gpio_num_t TxPin, gpio_num_t RxPin, uart_port_t UartNum, int readTimeout_);
     void play(char folderNr, char trackNr);
-
-    void stopMP3();
+    void playRandom(char folderNr, char amount);
+    void stop();
     void setVolume(unsigned int volume); // 0 to 30
     void repeatPlay(bool enable);
-
+    void enableFeedback(bool feedbackEnabled_);
+    bool isPlaying();
 private:
     uart_port_t UartNum;
-
+    int readTimeout;
+    bool feedbackEnabled = true;
+    //bool readFeedback(char *command, char * data);
+    int getFeedback(char command);
     void sendData(char command, char dataMSB, char dataLSB);
 };
 

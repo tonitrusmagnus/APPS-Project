@@ -17,11 +17,15 @@ int map(int value, int fromLow, int fromHigh, int toLow, int toHigh) {
 }
 
 int randomNumber(int min,int max){
-    if (max!=min) {
-        srand(time(NULL));
-        return (rand()%(max-min))+ min ;
-    } 
-    else {
-        return min;
+    static bool first = true;
+    if (first)
+    {
+        srand( time(NULL) ); // Only set seed for the first time
+        first = false;
     }
+
+    if (max >= min) {
+        return (rand() % (max-min+1) ) + min ;
+    }
+    return -1;
 }

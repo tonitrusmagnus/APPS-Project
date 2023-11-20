@@ -21,15 +21,18 @@
 
 #define CALIBRATE_BUTTON_ACTIVE true
 #define MUTE_BUTTON_ACTIVE true
+#define RELAX_ACTIVE false
 
 #define LED_AMOUNT 8
 
-#define SERVO_PIN GPIO_NUM_3
+#define SERVO_PIN GPIO_NUM_21
 #define SERVO_MIN_ANGLE 0
 #define SERVO_MAX_ANGLE 110
 
 // LEDS or SERVO
-#define VISUAL_FEEDBACK LEDS
+#define VF_LEDS     0
+#define VF_SERVO    1
+#define VISUAL_FEEDBACK VF_SERVO
 
 #define HZ_THRES_MIN 50
 #define HZ_THRES_MAX 200
@@ -41,5 +44,6 @@
 #define MIN_CALIBRATIONVALUES_AMOUNT 5
 
 #define UARTMP3 UART_NUM_2
+#define FEEDBACK_TIMEOUT_TICKS 20000
 
 #endif

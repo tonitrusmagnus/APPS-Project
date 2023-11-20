@@ -32,6 +32,7 @@ Led_Driver ledDriver(LedPins, LED_AMOUNT);
 Servo servoDriver(SERVO_PIN);
 
 MP3Driver mp3Driver;
+bool mp3IsPlaying = false;
 
 Timer tenSecondTimer;
 
@@ -41,7 +42,6 @@ int feedbackState = volumeOnLed;
 int volume;
 int frequency;
 bool dataReady = 0;
-bool feedbackStateChanged = 0;
 bool muted = false;
 
 // Thresholds
@@ -72,9 +72,15 @@ void statemachine(bool *_dataReady, int _volume, int _frequency)
     case relax:
         // ESP_LOGI("Current State:", "relax");
         //  relax excercises
+#if RELAX_ACTIVE == true
         stateRelax();
-
+        if(mp3Driver.isPlaying() == false){
+            tenSecondTimer.reset();
+            nextState = process;
+        }
+#else 
         nextState = process;
+#endif
         break;
     case process:
         // ESP_LOGI("Current State:", "process");
@@ -139,7 +145,8 @@ void statemachine(bool *_dataReady, int _volume, int _frequency)
 
 void stateSetup(void)
 {
-    mp3Driver.init(TXD_PIN, RXD_PIN, UARTMP3);
+    mp3Driver.init(TXD_PIN, RXD_PIN, UARTMP3,FEEDBACK_TIMEOUT_TICKS);
+    mp3Driver.enableFeedback(false);
     tenSecondTimer.init(10000);
     volumeOnLedButton.init(DB_ON_LED_BUTTON_PIN, rising);
     frequencyOnLedButton.init(HZ_ON_LED_BUTTON_PIN, rising);
@@ -153,14 +160,22 @@ void stateSetup(void)
 
 void stateRelax(void)
 {
+    static bool isplaying = false;
+    if(isplaying == false){
+        isplaying = true;
+        mp3Driver.playRandom(FOLDER_RELAX,RELAX_FILES_AMOUNT);
+    }
 }
 
 void stateProcess()
-{
+{   
     if (dataReady == true)
     {
+        // Dont add readings from speaker
+        if (mp3Driver.isPlaying() == false) {
         volumeQueue.add(volume);
         frequencyQueue.add(frequency);
+        }
         dataReady = false;
     }
 
@@ -173,7 +188,7 @@ void stateProcess()
 
         ESP_LOGI("Feedback state:", "Volume on Leds");
         feedbackState = volumeOnLed;
-        feedbackStateChanged = true;
+        mp3Driver.playRandom(FOLDER_VOLUME_ON_LED,VOLUME_ON_LED_FILES_AMOUNT);
     }
 
     else if ((frequencyOnLedButton.flag == true) && (feedbackState == volumeOnLed))
@@ -184,7 +199,8 @@ void stateProcess()
 
         ESP_LOGI("Feedback state:", "Frequency on Leds");
         feedbackState = frequencyOnLed;
-        feedbackStateChanged = true;
+        mp3Driver.playRandom(FOLDER_FREQUENCY_ON_LED, FREQUENCY_ON_LED_FILES_AMOUNT);
+        tenSecondTimer.reset(); // 
     }
 
 #if MUTE_BUTTON_ACTIVE == true
@@ -194,6 +210,14 @@ void stateProcess()
         muteButton.flag = false;
         muted = !muted;
         ESP_LOGI("mutebutton", "%d", muted);
+
+        if (muted) {
+            mp3Driver.play(FOLDER_MUTE, MUTE_FILE_MUTED);
+        }
+        else {
+            mp3Driver.play(FOLDER_MUTE, MUTE_FILE_UNMUTED);
+        }
+        tenSecondTimer.reset();
     }
 #endif
 }
@@ -239,13 +263,13 @@ void visualFeedback()
     }
 
 // Feedback can be on Leds or Servo depending on specific prototype
-#if VISUAL_FEEDBACK == LEDS
+#if VISUAL_FEEDBACK == VF_LEDS
 
     // Calculate the amount of leds to be turned on
     int ledLevel = constrain(fraction * LED_AMOUNT, 0, LED_AMOUNT);
     ledDriver.setLevel(ledLevel);
 
-#elif VISUAL_FEEDBACK == SERVO
+#elif VISUAL_FEEDBACK == VF_SERVO
 
     // Calculate percentage
     int servoLevel = constrain(fraction * SERVO_MAX_ANGLE, SERVO_MIN_ANGLE, SERVO_MAX_ANGLE);
@@ -257,22 +281,7 @@ void visualFeedback()
 void audioFeedback()
 {
 
-    if (feedbackStateChanged == true)
-    {
-        feedbackStateChanged = false;
-        tenSecondTimer.skip = true;
-        if (feedbackState == volumeOnLed)
-        {
-            mp3Driver.play(FOLDER_VOLUME_ON_LED, randomNumber(1, VOLUME_ON_LED_FILES_AMOUNT));
-            ESP_LOGI("feedbackstateaudio", "VOL ON LED");
-        }
-        else if (feedbackState == frequencyOnLed)
-        {
-            mp3Driver.play(FOLDER_FREQUENCY_ON_LED, randomNumber(1, FREQUENCY_ON_LED_FILES_AMOUNT));
-            ESP_LOGI("feedbackstateaudio", "FREQ ON LED");
-        }
-    }
-    else if (tenSecondTimer.flag == true && muted == false)
+    if (tenSecondTimer.flag == true && muted == false)
     {
         tenSecondTimer.flag = false;
         ESP_LOGI("tenseconds_interupt", "trigger");
@@ -281,22 +290,22 @@ void audioFeedback()
 
         if (feedbackState == volumeOnLed && volumeQueue.average() >= thres_dB)
         {
-            mp3Driver.play(FOLDER_VOLUME_GOOD, randomNumber(1, VOLUME_GOOD_FILES_AMOUNT));
+            mp3Driver.playRandom(FOLDER_VOLUME_GOOD, VOLUME_GOOD_FILES_AMOUNT);
             ESP_LOGI("FEEDBACK", "VOLUME_GOOD");
         }
         else if (feedbackState == volumeOnLed)
         {
-            mp3Driver.play(FOLDER_VOLUME_HIGHER, randomNumber(1, VOLUME_HIGHER_FILES_AMOUNT));
+            mp3Driver.playRandom(FOLDER_VOLUME_HIGHER, VOLUME_HIGHER_FILES_AMOUNT);
             ESP_LOGI("FEEDBACK", "VOLUME_HIGHER");
         }
         else if (feedbackState == frequencyOnLed && frequencyQueue.average() <= thres_Hz)
         {
-            mp3Driver.play(FOLDER_FREQUENCY_GOOD, randomNumber(1, FREQUENCY_GOOD_FILES_AMOUNT));
+            mp3Driver.playRandom(FOLDER_FREQUENCY_GOOD, FREQUENCY_GOOD_FILES_AMOUNT);
             ESP_LOGI("FEEDBACK", "FREQUENCY_GOOD");
         }
         else if (feedbackState == frequencyOnLed)
         {
-            mp3Driver.play(FOLDER_FREQUENCY_LOWER, randomNumber(1, FREQUENCY_LOWER_FILES_AMOUNT));
+            mp3Driver.playRandom(FOLDER_FREQUENCY_LOWER, FREQUENCY_LOWER_FILES_AMOUNT);
             ESP_LOGI("FEEDBACK", "FREQUENCY_LOWER");
         }
     }
