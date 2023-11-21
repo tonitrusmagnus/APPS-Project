@@ -29,7 +29,7 @@ Button volumeOnLedButton;
 Button frequencyOnLedButton;
 
 Led_Driver ledDriver(LedPins, LED_AMOUNT);
-Servo servoDriver(SERVO_PIN);
+Servo servoDriver;
 
 MP3Driver mp3Driver;
 bool mp3IsPlaying = false;
@@ -145,8 +145,13 @@ void statemachine(bool *_dataReady, int _volume, int _frequency)
 
 void stateSetup(void)
 {
+    servoDriver.init(SERVO_PIN);
+    servoDriver.setAngle(0);
+
     mp3Driver.init(TXD_PIN, RXD_PIN, UARTMP3,FEEDBACK_TIMEOUT_TICKS);
     mp3Driver.enableFeedback(false);
+    mp3Driver.setVolume(15); // half volume
+
     tenSecondTimer.init(10000);
     volumeOnLedButton.init(DB_ON_LED_BUTTON_PIN, rising);
     frequencyOnLedButton.init(HZ_ON_LED_BUTTON_PIN, rising);
@@ -173,8 +178,10 @@ void stateProcess()
     {
         // Dont add readings from speaker
         if (mp3Driver.isPlaying() == false) {
-        volumeQueue.add(volume);
-        frequencyQueue.add(frequency);
+            ESP_LOGI("Volume","%d",volume);
+            volumeQueue.add(volume);
+            ESP_LOGI("Frequency","%d",frequency);
+            frequencyQueue.add(frequency);
         }
         dataReady = false;
     }
@@ -232,8 +239,6 @@ void stateFeedback()
 
 void stateCalibrate()
 {
-    ESP_LOGI("In state", "Calibrate");
-
     if (dataReady == true)
     {
         calibrateQueueDb.add(volume);
@@ -272,7 +277,7 @@ void visualFeedback()
 #elif VISUAL_FEEDBACK == VF_SERVO
 
     // Calculate percentage
-    int servoLevel = constrain(fraction * SERVO_MAX_ANGLE, SERVO_MIN_ANGLE, SERVO_MAX_ANGLE);
+    int servoLevel = constrain((1-fraction) * SERVO_MAX_ANGLE, SERVO_MIN_ANGLE, SERVO_MAX_ANGLE); // invert fraction to make servo move to the right
     servoDriver.setAngle(servoLevel);
 
 #endif
@@ -288,22 +293,22 @@ void audioFeedback()
         
         ESP_LOGI("vol queue avg", "%lf", volumeQueue.average());
 
-        if (feedbackState == volumeOnLed && volumeQueue.average() >= thres_dB)
+        if (feedbackState == frequencyOnLed && volumeQueue.average() >= thres_dB)
         {
             mp3Driver.playRandom(FOLDER_VOLUME_GOOD, VOLUME_GOOD_FILES_AMOUNT);
             ESP_LOGI("FEEDBACK", "VOLUME_GOOD");
         }
-        else if (feedbackState == volumeOnLed)
+        else if (feedbackState == frequencyOnLed)
         {
             mp3Driver.playRandom(FOLDER_VOLUME_HIGHER, VOLUME_HIGHER_FILES_AMOUNT);
             ESP_LOGI("FEEDBACK", "VOLUME_HIGHER");
         }
-        else if (feedbackState == frequencyOnLed && frequencyQueue.average() <= thres_Hz)
+        else if (feedbackState == volumeOnLed && frequencyQueue.average() <= thres_Hz)
         {
             mp3Driver.playRandom(FOLDER_FREQUENCY_GOOD, FREQUENCY_GOOD_FILES_AMOUNT);
             ESP_LOGI("FEEDBACK", "FREQUENCY_GOOD");
         }
-        else if (feedbackState == frequencyOnLed)
+        else if (feedbackState == volumeOnLed)
         {
             mp3Driver.playRandom(FOLDER_FREQUENCY_LOWER, FREQUENCY_LOWER_FILES_AMOUNT);
             ESP_LOGI("FEEDBACK", "FREQUENCY_LOWER");

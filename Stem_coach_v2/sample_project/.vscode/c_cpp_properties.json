@@ -16,7 +16,10 @@
                 "${workspaceFolder}/main/helper_functions",
                 "${workspaceFolder}/main",
                 "D:/user/Robin/esp/esp-idf/components/esp_timer/include",
-                "${workspaceFolder}/build/config"
+                "${workspaceFolder}/build/config",
+                "D:/user/Robin/esp/esp-idf/components/driver/ledc/include",
+                "D:/user/Robin/esp/esp-idf/components/hal/esp32/include",
+                "D:/user/Robin/esp/esp-idf/components/driver/uart/include"
             ],
             "browse": {
                 "path": [

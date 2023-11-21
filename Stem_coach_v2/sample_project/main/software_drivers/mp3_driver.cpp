@@ -4,11 +4,18 @@
 // Play sounds using MP3-TF-16P, communicating via UART
 
 #include "mp3_driver.hpp"
-#include "helper_functions/helper_functions.hpp"
 
+
+#include "helper_functions/helper_functions.hpp"
 
 static const int RX_BUF_SIZE = 1024;
 
+static void IRAM_ATTR uart_intr_handle(void *arg)
+{
+    
+#error To be implemented
+
+}
 
 MP3Driver::MP3Driver(){
     // Constructor here
@@ -24,7 +31,7 @@ bool MP3Driver::init(gpio_num_t TxPin, gpio_num_t RxPin, uart_port_t UartNum_, i
 
     /* Configure parameters of an UART driver, communication pins and install the driver */
     const uart_config_t uart_config = {
-        .baud_rate = 9600,
+        .baud_rate = MP3_UART_BAUD,
         .data_bits = UART_DATA_8_BITS,
         .parity = UART_PARITY_DISABLE,
         .stop_bits = UART_STOP_BITS_1,
@@ -32,9 +39,21 @@ bool MP3Driver::init(gpio_num_t TxPin, gpio_num_t RxPin, uart_port_t UartNum_, i
         .source_clk = UART_SCLK_APB,
     };
 
+    const uart_intr_config_t uart_intr_conf = {
+        .intr_enable_mask = UART_INTR_RXFIFO_FULL,
+        .rxfifo_full_thresh = MP3_UART_FRAME_SIZE,
+        
+    };
+
+    uart_intr_config(UartNum, &uart_intr_conf);
+
     uart_driver_install(UartNum, RX_BUF_SIZE * 2, 0, 0, NULL, 0);
     uart_param_config(UartNum, &uart_config);
     uart_set_pin(UartNum, TxPin, RxPin, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
+
+
+	// enable RX interrupt
+	ESP_ERROR_CHECK(uart_enable_rx_intr(UartNum));
 
     return true;
 }

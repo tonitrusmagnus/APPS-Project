@@ -1,13 +1,13 @@
 #ifndef MP3_DRIVER_HPP
 #define MP3_DRIVER_HPP
 
-
+//#include "helper_functions/defines.hpp"
 #include "driver/uart.h"
 #include "esp_log.h"
 #include "driver/gpio.h"
 #include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-//#include "helper_functions/defines.hpp"
+#include "esp_intr_alloc.h"
+#include "hal/uart_hal.h"
 
 /* UART frame values */
 #define MP3_UART_FRAME_SIZE      0x0A //total number of bytes in UART packet, same for cmd & feedback
@@ -79,6 +79,8 @@
 #define FEEDBACK_BYTE_AMOUNT     10
 #define FEEDBACK_COMMAND_POS     4
 #define FEEDBACK_DATA_POS        7
+
+#define MP3_UART_BAUD 9600 // Default BAUD rate of module is 9600
 
 class MP3Driver {
 public:
