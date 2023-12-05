@@ -2031,3 +2031,11 @@
 45	302	7222594163955646	D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/bootloader/bootloader.elf	f104890bd3621814
 45	302	7222594163955646	D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/bootloader/bootloader.bin	f104890bd3621814
 45	302	7222594163955646	D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/bootloader/bootloader.map	f104890bd3621814
+99	2255	7222594163955646	bootloader-prefix/src/bootloader-stamp/bootloader-build	f104890bd3621814
+99	2255	7222594163955646	bootloader/bootloader.elf	f104890bd3621814
+99	2255	7222594163955646	bootloader/bootloader.bin	f104890bd3621814
+99	2255	7222594163955646	bootloader/bootloader.map	f104890bd3621814
+99	2255	7222594163955646	D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	f104890bd3621814
+99	2255	7222594163955646	D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/bootloader/bootloader.elf	f104890bd3621814
+99	2255	7222594163955646	D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/bootloader/bootloader.bin	f104890bd3621814
+99	2255	7222594163955646	D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/bootloader/bootloader.map	f104890bd3621814
