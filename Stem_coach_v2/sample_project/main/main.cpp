@@ -11,7 +11,7 @@
 #include "Apps_main.hpp"
 #include "software_drivers/uart.hpp"
 #include "esp_timer.h"
-
+ 
 //For debugging:
 // #include "hardware_drivers/servo_driver.hpp"
 // #include "helper_functions/defines.hpp"
@@ -29,31 +29,26 @@ extern "C"
 			err = nvs_flash_init();
 		}
 		ESP_ERROR_CHECK(err);
-		_uartInit();
+		//_uartInit();
+		ESP_LOGI("Start","running..");
 
-
-		xTaskCreatePinnedToCore(task_process_audio, 	"process audio", 	2048, NULL, 1, NULL, CORE_PROGRAM);
-		xTaskCreatePinnedToCore(task_read_audio, 		"read audio", 		2048, NULL, 1, NULL, CORE_APP);
-		xTaskCreate(task_run_statemachine, 	"run statemachine",	2048, NULL, 1, NULL);
+		xTaskCreatePinnedToCore(task_process_audio, 	"process audio", 	8192 , NULL, 1, NULL, CORE_PROGRAM);
+		xTaskCreatePinnedToCore(task_read_audio, 		"read audio", 		8192 , NULL, 1, NULL, CORE_APP);
+		xTaskCreate(task_run_statemachine, 	"statemachine",	8192 , NULL, 1, NULL);
 		// xTaskCreatePinnedToCore(task_run_statemachine, 	"run statemachine",	2048, NULL, 1, NULL, CORE_APP2);
 
-		//xTaskCreatePinnedToCore(debug_task, "debug", 2048, NULL, 1, NULL, CORE_PROGRAM);
+		//xTaskCreatePinnedToCore(debug_task, "debug", 2048, NULL, 1, NULL, CORE_APP);
 
     }
 
 
 	// void debug_task(void *params) {
 		
-	// 	Servo servo;
-	// 	servo.init(SERVO_PIN);
-
 		
 
 	// 	while (1)
 	// 	{
-	// 		servo.setAngle(180);
-	// 		vTaskDelay(1000 / portTICK_PERIOD_MS); 
-	// 		servo.setAngle(0);
+	// 		ESP_LOGI("Test","Running...");
 	// 		vTaskDelay(1000 / portTICK_PERIOD_MS); 
 	// 	}
 

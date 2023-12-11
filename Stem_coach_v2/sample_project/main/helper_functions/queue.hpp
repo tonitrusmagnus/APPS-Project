@@ -11,8 +11,7 @@ private:
 
 public:
     int_queue(int length);
-    // ~int_queue();
-
+    
     void setLength(int length);
     void add(int value);
     void clear();

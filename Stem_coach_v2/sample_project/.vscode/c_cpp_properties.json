@@ -2,24 +2,17 @@
     "configurations": [
         {
             "name": "ESP-IDF",
-            "compilerPath": "d:\\user\\Robin\\.espressif\\tools\\xtensa-esp32-elf\\esp-12.2.0_20230208\\xtensa-esp32-elf\\bin\\xtensa-esp32-elf-gcc.exe",
             "includePath": [
                 "${config:idf.espIdfPath}/components/**",
                 "${config:idf.espIdfPathWin}/components/**",
                 "${config:idf.espAdfPath}/components/**",
                 "${config:idf.espAdfPathWin}/components/**",
                 "${workspaceFolder}/**",
-                "D:/user/Robin/esp/esp-idf/components/freertos/FreeRTOS-Kernel-SMP/include",
-                "D:/user/Robin/esp/esp-idf/components/driver/gpio/include",
-                "D:/user/Robin/esp/esp-idf/components/freertos/esp_additions/include/freertos",
-                "${workspaceFolder}/main/hardware_drivers",
+                "C:/ESP/esp-idf/esp-idf/components/driver/i2c/include",
+                "C:/ESP/esp-idf/esp-idf/components/esp_common/include",
+                "C:/ESP/esp-idf/esp-idf/components/spi_flash/sim/stubs/freertos/include",
                 "${workspaceFolder}/main/helper_functions",
-                "${workspaceFolder}/main",
-                "D:/user/Robin/esp/esp-idf/components/esp_timer/include",
-                "${workspaceFolder}/build/config",
-                "D:/user/Robin/esp/esp-idf/components/driver/ledc/include",
-                "D:/user/Robin/esp/esp-idf/components/hal/esp32/include",
-                "D:/user/Robin/esp/esp-idf/components/driver/uart/include"
+                "${workspaceFolder}/main"
             ],
             "browse": {
                 "path": [
@@ -30,7 +23,8 @@
                     "${workspaceFolder}"
                 ],
                 "limitSymbolsToIncludedHeaders": false
-            }
+            },
+            "compilerPath": "C:\\ESP\\.espressif\\tools\\xtensa-esp32s3-elf\\esp-12.2.0_20230208\\xtensa-esp32s3-elf\\bin\\xtensa-esp32s3-elf-cpp.exe"
         }
     ],
     "version": 4

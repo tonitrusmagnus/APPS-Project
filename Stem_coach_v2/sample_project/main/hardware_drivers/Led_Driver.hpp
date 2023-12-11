@@ -4,19 +4,20 @@
 #include <cstring>
 #include <driver/gpio.h>
 #include "leds.hpp"
+#include "max7312.hpp"
 
 #pragma once 
 
 class Led_Driver
 {
 private:
-    Leds* ledarray;
-    int ledSize;
-    /* data */
+    Max7312 ioExpander;
+    int ledAmount;
+
 public:
-    Led_Driver(gpio_num_t *number,int size);
-    ~Led_Driver();
-    void setLevel(int level);
+    Led_Driver();
+    void setLevel(int levelL,int levelR);
+    void init();
 };
 
 #endif

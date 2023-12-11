@@ -3,14 +3,16 @@
 
 #include "driver/ledc.h"
 
-#define LEDC_HS_TIMER          LEDC_TIMER_0
-#define LEDC_HS_MODE           LEDC_HIGH_SPEED_MODE
-#define LEDC_HS_CH0_CHANNEL    LEDC_CHANNEL_0
-//#define LEDC_HS_CH0_GPIO       27   // GPIO where your servo signal pin is connected
+// #define LEDC_HS_TIMER          LEDC_TIMER_0
+// #define LEDC_HS_MODE           LEDC_LOW_SPEED_MODE
+// #define LEDC_HS_CH0_CHANNEL    LEDC_CHANNEL_0
+#define SERVO_FREQUENCY     50                  // Servo's generally work on 50 Hz
+#define SERVO_DUTY_RES      LEDC_TIMER_12_BIT   // 12-bit resolution for more precise control
+#define SERVO_SPEED_MODE    LEDC_LOW_SPEED_MODE // Speed mode available for every timer and esp type
 
 #define SERVO_MIN_PULSEWIDTH   .5  // Minimum pulse width in ms
 #define SERVO_MAX_PULSEWIDTH   2.5 // Maximum pulse width in ms
-#define SERVO_COUNT_PER_MS     1639 // (2^15bits-1)/20ms = 1638.35 
+#define SERVO_COUNT_PER_MS     205 // (2^12bits-1)/20ms = 204.75
 #define SERVO_MIN_COUNT        SERVO_COUNT_PER_MS*SERVO_MIN_PULSEWIDTH // SERVO_MIN_PULSEWIDTH*SERVO_COUNT_PER_MS
 #define SERVO_MAX_COUNT        SERVO_COUNT_PER_MS*SERVO_MAX_PULSEWIDTH // SERVO_MAX_PULSEWIDTH*SERVO_COUNT_PER_MS
 #define SERVO_MAX_DEGREE       180  // Maximum angle in degrees
@@ -22,11 +24,13 @@ class Servo
 {
 private:
     int servo_pin;
+    ledc_timer_t timer;
+    ledc_channel_t channel;
+
 
 public:
-    Servo();
-    ~Servo();
-    void init(int pin);
+    Servo(int pin_, ledc_timer_t timer_, ledc_channel_t channel_);
+    void init();
     void setAngle(int angle);
 };
 

@@ -61,10 +61,10 @@ std::vector<float> audio_vec1(SAMPLES_LENGTH);
 std::vector<float> audio_vec2(SAMPLES_LENGTH);
 static_assert(SAMPLES_LENGTH, "SAMPLES_LENGTH, which determines vector size, must be a power of 2!");
 std::vector<float> audiodata;
-datatransfer datatrans;
-int volumeValue;
-int frequencyValue;
-bool _dataReady;
+//datatransfer datatrans;
+int volumeValue = 0;
+int frequencyValue = 0;
+bool _dataReady = false;
 
 		
 volatile int Mode = 1;
@@ -106,8 +106,6 @@ void task_read_audio(void *params)
 {
 	while (true)
 	{
-    	//ESP_LOGI("Current Task:", "read audio");
-
 		if (inmp441.read_full(audio_vec1) == ESP_OK)
 		{
 			audio_status = AudioStatus::VEC1_READY;
@@ -125,9 +123,6 @@ void task_process_audio(void *params)
 	
 	while (true)
 	{
-    	//ESP_LOGI("Current Task:", "process audio");
-			
-
 		switch (audio_status)
 		{
 		case AudioStatus::VEC1_READY:

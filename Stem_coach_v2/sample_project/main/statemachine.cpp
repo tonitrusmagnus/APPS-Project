@@ -10,7 +10,7 @@
 #include "helper_functions/queue.hpp"
 #include "helper_functions/defines.hpp"
 #include "helper_functions/audioDefines.hpp"
-#include "helper_functions/helper_functions.hpp"
+#include "helper_functions/helper_functions.hpp" 
 
 gpio_num_t LedPins[LED_AMOUNT] = {GPIO_NUM_4, GPIO_NUM_15, GPIO_NUM_2, GPIO_NUM_5, GPIO_NUM_13, GPIO_NUM_12, GPIO_NUM_14, GPIO_NUM_27};
 
@@ -19,22 +19,26 @@ int_queue frequencyQueue(MEASURE_QUEUE_LENGTH);
 int_queue calibrateQueueHZ(CALIBRATE_QUEUE_LENGTH);
 int_queue calibrateQueueDb(CALIBRATE_QUEUE_LENGTH);
 
+Button volumeOnLedButton(DB_ON_LED_BUTTON_PIN, GPIO_INTR_POSEDGE);
+Button frequencyOnLedButton(HZ_ON_LED_BUTTON_PIN, GPIO_INTR_POSEDGE);
+    
 #if CALIBRATE_BUTTON_ACTIVE == true
-Button calibrateButton;
+Button calibrateButton(CALIBRATE_BUTTON_PIN, GPIO_INTR_POSEDGE);
 #endif
 #if MUTE_BUTTON_ACTIVE == true
-Button muteButton;
+Button muteButton(MUTE_BUTTON_PIN, GPIO_INTR_POSEDGE);
 #endif
-Button volumeOnLedButton;
-Button frequencyOnLedButton;
 
-Led_Driver ledDriver(LedPins, LED_AMOUNT);
-Servo servoDriver;
 
-MP3Driver mp3Driver;
+Led_Driver ledDriver;
+Servo servoDriver(SERVO_PIN, LEDC_TIMER_0, LEDC_CHANNEL_0);
+Leds blinkingLed(BLINKING_LED_PIN);
+
+MP3Driver mp3Driver(MP3_TXD_PIN, MP3_RXD_PIN, UARTMP3,FEEDBACK_TIMEOUT_TICKS);
 bool mp3IsPlaying = false;
 
-Timer tenSecondTimer;
+Timer tenSecondTimer(10000);
+Timer secondTimer(1000);
 
 int currentState = setup;
 int nextState = setup;
@@ -46,7 +50,7 @@ bool muted = false;
 
 // Thresholds
 int thres_Hz = 90;
-int thres_dB = 40;
+int thres_dB = 50;
 
 void statemachine(bool *_dataReady, int _volume, int _frequency)
 {
@@ -64,7 +68,7 @@ void statemachine(bool *_dataReady, int _volume, int _frequency)
     switch (currentState)
     {
     case setup:
-        // ESP_LOGI("Current State:", "setup");
+        ESP_LOGI("Current State:", "setup");
         //  Initialisations here
         stateSetup();
         nextState = relax;
@@ -74,8 +78,21 @@ void statemachine(bool *_dataReady, int _volume, int _frequency)
         //  relax excercises
 #if RELAX_ACTIVE == true
         stateRelax();
-        if(mp3Driver.isPlaying() == false){
+
+        // End relax state when audio is finished or when calibrate button is pressed to stop manually
+        if(mp3Driver.isPlaying() == false || calibrateButton.getFlag() == true){ 
+            mp3Driver.stop();
+
+            // Reset all button flags
+            calibrateButton.resetFlag();
+            muteButton.resetFlag();
+            frequencyOnLedButton.resetFlag();
+            volumeOnLedButton.resetFlag();
+            
+            tenSecondTimer.start();
             tenSecondTimer.reset();
+            
+            ESP_LOGI("Relaxation", "Completed");
             nextState = process;
         }
 #else 
@@ -90,11 +107,14 @@ void statemachine(bool *_dataReady, int _volume, int _frequency)
 
         nextState = feedback;
 #if CALIBRATE_BUTTON_ACTIVE == true
-        if (calibrateButton.flag == true)
+        if (calibrateButton.getFlag() == true)
         {
             vTaskDelay(50 / portTICK_PERIOD_MS); // Wait 50ms for debounce
+            calibrateButton.resetFlag();
+            
             nextState = calibrate;
-            calibrateButton.flag = false;
+            secondTimer.start();
+            mp3Driver.play(FOLDER_CALLIBRATE,CALLIBRATE_FILE_STARTED);
         }
 #endif
         break;
@@ -108,24 +128,27 @@ void statemachine(bool *_dataReady, int _volume, int _frequency)
 
     case calibrate:
 #if CALIBRATE_BUTTON_ACTIVE == true
-
+        
         // Calibrate voice trainer
         stateCalibrate();
 
         // If callibration button pressed, go back to process
-        if ((calibrateButton.flag == true))
+        if ((calibrateButton.getFlag() == true))
         {    
             vTaskDelay(50 / portTICK_PERIOD_MS); // Wait 50ms for debounce
+            calibrateButton.resetFlag();
+
             if(calibrateQueueDb.length() > MIN_CALIBRATIONVALUES_AMOUNT){
                 thres_dB = calibrateQueueDb.highest() - DB_CALIBRATION_OFFSET;
                 thres_Hz = calibrateQueueHZ.lowest() + HZ_CALIBRATION_OFFSET;
             }
+            mp3Driver.play(FOLDER_CALLIBRATE,CALLIBRATE_FILE_STOPPED);
+            secondTimer.stop();
             ESP_LOGI("Vol Thres", "%d", thres_dB);
             ESP_LOGI("Freq Thres", "%d", thres_Hz);
             calibrateQueueDb.clear();
             calibrateQueueHZ.clear();
             nextState = process;
-            calibrateButton.flag = false;
         }
 
 #else
@@ -138,6 +161,7 @@ void statemachine(bool *_dataReady, int _volume, int _frequency)
         break;
     }
 
+    blinkingLed.inverse(); // Inverse led to blink while active
     *_dataReady = dataReady;
     //ESP_LOGW("ready? 2" ,"dataReady:%d, _dataReady:%d", dataReady, *_dataReady);
     currentState = nextState;
@@ -145,39 +169,62 @@ void statemachine(bool *_dataReady, int _volume, int _frequency)
 
 void stateSetup(void)
 {
-    servoDriver.init(SERVO_PIN);
-    servoDriver.setAngle(0);
+    blinkingLed.init();
+    blinkingLed.setState(false); // Blinking led off on startup
 
-    mp3Driver.init(TXD_PIN, RXD_PIN, UARTMP3,FEEDBACK_TIMEOUT_TICKS);
+    servoDriver.init();
+    servoDriver.setAngle(0); // Set initial angle to 0
+
+    ledDriver.init();
+    blinkingLed.init();
+
+    mp3Driver.init();
     mp3Driver.enableFeedback(false);
-    mp3Driver.setVolume(15); // half volume
+    mp3Driver.setVolume(30); // half volume
 
-    tenSecondTimer.init(10000);
-    volumeOnLedButton.init(DB_ON_LED_BUTTON_PIN, rising);
-    frequencyOnLedButton.init(HZ_ON_LED_BUTTON_PIN, rising);
+    tenSecondTimer.init();
+    tenSecondTimer.stop();
+    secondTimer.init();
+    secondTimer.stop();
+
+    volumeOnLedButton.init();
+    frequencyOnLedButton.init();
+    
 #if CALIBRATE_BUTTON_ACTIVE == true
-    calibrateButton.init(CALIBRATE_BUTTON_PIN, rising);
+    calibrateButton.init();
 #endif
 #if MUTE_BUTTON_ACTIVE == true
-    muteButton.init(MUTE_BUTTON_PIN, rising);
+    muteButton.init();
 #endif
+
+
+    vTaskDelay(500 / portTICK_PERIOD_MS); // Delay wait for devices to be set up
+    ESP_LOGI("Setup", "Completed");
 }
 
 void stateRelax(void)
 {
+    ESP_LOGI("Relaxation", "Started");
+
     static bool isplaying = false;
     if(isplaying == false){
         isplaying = true;
         mp3Driver.playRandom(FOLDER_RELAX,RELAX_FILES_AMOUNT);
+        
+        ESP_LOGI("Relaxation", "Audio file started");
     }
+    
+    vTaskDelay(500 / portTICK_PERIOD_MS); // Delay to prevent reading the mp3 player too fast
 }
 
 void stateProcess()
 {   
     if (dataReady == true)
     {
+        bool isplaying = mp3Driver.isPlaying();
+        ESP_LOGI("Is playing", "%d", isplaying);
         // Dont add readings from speaker
-        if (mp3Driver.isPlaying() == false) {
+        if (isplaying == false) {
             ESP_LOGI("Volume","%d",volume);
             volumeQueue.add(volume);
             ESP_LOGI("Frequency","%d",frequency);
@@ -187,22 +234,22 @@ void stateProcess()
     }
 
     // Buttons
-    if ((volumeOnLedButton.flag == true) && (feedbackState == frequencyOnLed))
+    if ((volumeOnLedButton.getFlag() == true) && (feedbackState == frequencyOnLed))
     {
         vTaskDelay(50 / portTICK_PERIOD_MS); // Wait 50ms for debounce
-        frequencyOnLedButton.flag = false;
-        volumeOnLedButton.flag = false;
+        frequencyOnLedButton.resetFlag();
+        volumeOnLedButton.resetFlag();
 
         ESP_LOGI("Feedback state:", "Volume on Leds");
         feedbackState = volumeOnLed;
         mp3Driver.playRandom(FOLDER_VOLUME_ON_LED,VOLUME_ON_LED_FILES_AMOUNT);
     }
 
-    else if ((frequencyOnLedButton.flag == true) && (feedbackState == volumeOnLed))
+    else if ((frequencyOnLedButton.getFlag() == true) && (feedbackState == volumeOnLed))
     {
         vTaskDelay(50 / portTICK_PERIOD_MS); // Wait 50ms for debounce
-        volumeOnLedButton.flag = false;
-        frequencyOnLedButton.flag = false;
+        volumeOnLedButton.resetFlag();
+        frequencyOnLedButton.resetFlag();
 
         ESP_LOGI("Feedback state:", "Frequency on Leds");
         feedbackState = frequencyOnLed;
@@ -211,10 +258,10 @@ void stateProcess()
     }
 
 #if MUTE_BUTTON_ACTIVE == true
-    if (muteButton.flag == true)
+    if (muteButton.getFlag() == true)
     {
         vTaskDelay(50 / portTICK_PERIOD_MS); // Wait 50ms for debounce
-        muteButton.flag = false;
+        muteButton.resetFlag();
         muted = !muted;
         ESP_LOGI("mutebutton", "%d", muted);
 
@@ -239,6 +286,13 @@ void stateFeedback()
 
 void stateCalibrate()
 {
+    static bool flash = 0;
+    if(secondTimer.flag == true){
+        int level = flash*LED_AMOUNT;
+        ledDriver.setLevel(level,level);
+        secondTimer.flag = false;
+        flash = !flash;
+    }
     if (dataReady == true)
     {
         calibrateQueueDb.add(volume);
@@ -256,31 +310,34 @@ void visualFeedback()
 {
     // Calculate the fraction depending on the feedback state
     float fraction = 0;
+    float fractionFrequency = (float)(HZ_THRES_MAX - (constrain(frequencyQueue.latest(), thres_Hz, HZ_THRES_MAX))) / (float)(HZ_THRES_MAX - thres_Hz);
+    float fractionVolume = (float)(constrain(volumeQueue.latest(), DB_THRES_MIN, thres_dB) - DB_THRES_MIN) / (float)(thres_dB - DB_THRES_MIN);
+
+#if PROTOTYPE_3 == false
+    int ledLevel = 0;
     if (feedbackState == volumeOnLed)
     {
-        // Volume
-        fraction = (float)(constrain(volumeQueue.latest(), DB_THRES_MIN, thres_dB) - DB_THRES_MIN) / (float)(thres_dB - DB_THRES_MIN);
+        ledLevel = constrain(fractionVolume * LED_AMOUNT, 0, LED_AMOUNT);
     }
     else if (feedbackState == frequencyOnLed)
     {
-        // Frequency
-        fraction = (float)(HZ_THRES_MAX - (constrain(frequencyQueue.latest(), thres_Hz, HZ_THRES_MAX))) / (float)(HZ_THRES_MAX - thres_Hz);
+        ledLevel = constrain(fractionFrequency * LED_AMOUNT, 0, LED_AMOUNT);
     }
-
-// Feedback can be on Leds or Servo depending on specific prototype
-#if VISUAL_FEEDBACK == VF_LEDS
-
     // Calculate the amount of leds to be turned on
-    int ledLevel = constrain(fraction * LED_AMOUNT, 0, LED_AMOUNT);
-    ledDriver.setLevel(ledLevel);
+    // ledLevel = constrain(fraction * LED_AMOUNT, 0, LED_AMOUNT);
+    ledDriver.setLevel(ledLevel,0);
+#else
+    int ledLevelL = 0;
+    int ledLevelR = 0;
+    ledLevelR = constrain(fractionVolume * LED_AMOUNT, 0, LED_AMOUNT);
+    ledLevelL = constrain(fractionFrequency * LED_AMOUNT, 0, LED_AMOUNT);
 
-#elif VISUAL_FEEDBACK == VF_SERVO
 
-    // Calculate percentage
+    ledDriver.setLevel(ledLevelL,ledLevelR);
+#endif
+    // Calculate percentage for the servo
     int servoLevel = constrain((1-fraction) * SERVO_MAX_ANGLE, SERVO_MIN_ANGLE, SERVO_MAX_ANGLE); // invert fraction to make servo move to the right
     servoDriver.setAngle(servoLevel);
-
-#endif
 }
 
 void audioFeedback()

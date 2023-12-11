@@ -1,4 +1,4 @@
-# Install script for directory: D:/user/Robin/esp/esp-idf/components/mbedtls/mbedtls
+# Install script for directory: C:/ESP/esp-idf/esp-idf/components/mbedtls/mbedtls
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,14 +34,14 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "D:/user/Robin/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin/xtensa-esp32-elf-objdump.exe")
+  set(CMAKE_OBJDUMP "C:/ESP/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/bin/xtensa-esp32s3-elf-objdump.exe")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
-  include("D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/esp-idf/mbedtls/mbedtls/3rdparty/cmake_install.cmake")
-  include("D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
+  include("D:/user/Robin/_APPS/Stem_coach_v3/sample_project/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
+  include("D:/user/Robin/_APPS/Stem_coach_v3/sample_project/build/esp-idf/mbedtls/mbedtls/3rdparty/cmake_install.cmake")
+  include("D:/user/Robin/_APPS/Stem_coach_v3/sample_project/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
 
 endif()
 

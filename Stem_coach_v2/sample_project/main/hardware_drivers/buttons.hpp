@@ -6,23 +6,26 @@
 #include "freertos/task.h"
 #include "freertos/queue.h"
 #include "driver/gpio.h"
-enum edge{falling,rising};
 
 class Button
 {
 private:
-    /* data */
+
+    gpio_num_t buttonpin;
+
+    gpio_int_type_t interruptedge;
+
     static void IRAM_ATTR gpio_isr_handler(void* arg);
-
-    static bool isrServiceInstalled;
-
     void onButtonPress();
+    bool flag;
 
 public:
-    volatile bool flag;
-    Button();
-    ~Button();
-    void init(gpio_num_t buttonpin, edge interruptedge);
+    Button(gpio_num_t buttonpin, gpio_int_type_t interruptedge);
+
+    void init();
+    bool getFlag();
+    void resetFlag();
+    
 };
 
 #endif //BUTTONS_HPP

@@ -1,45 +1,50 @@
 #include "buttons.hpp"
 
-// #define GPIO_INPUT_IO_0     CONFIG_GPIO_INPUT_0
-// #define GPIO_INPUT_IO_1     CONFIG_GPIO_INPUT_1
-#define GPIO_INPUT_PIN_SEL  ((1ULL<<GPIO_INPUT_IO_0) | (1ULL<<GPIO_INPUT_IO_1))
-
-void IRAM_ATTR Button::gpio_isr_handler(void* arg)
+void IRAM_ATTR Button::gpio_isr_handler(void *arg)
 {
-    Button* instance = reinterpret_cast<Button*>(arg);
-    if (instance) {
+    Button *instance = reinterpret_cast<Button *>(arg);
+    if (instance)
+    {
         instance->onButtonPress();
     }
 }
 
-// Initialize the static member variable
-bool Button::isrServiceInstalled = false;
+// buttonpin_ should be GPIO_NUM_xx
+// interruptedge_ choose between GPIO_INTR_POSEDGE and GPIO_INTR_NEGEDGE
+Button::Button(gpio_num_t buttonpin_, gpio_int_type_t interruptedge_)
+{
+    buttonpin = buttonpin_;
+    interruptedge = interruptedge_;
+}
 
-void Button::onButtonPress() {
+void Button::onButtonPress()
+{
     flag = true;
 }
 
-void Button::init(gpio_num_t buttonpin, edge interruptedge){
+void Button::init()
+{
 
     gpio_config_t io_conf = {};
-    io_conf.intr_type = (interruptedge==rising) ? GPIO_INTR_POSEDGE: GPIO_INTR_NEGEDGE,
-    io_conf.pin_bit_mask = (1ULL<<buttonpin),
+    io_conf.intr_type = interruptedge, 
+    io_conf.pin_bit_mask = (1ULL << buttonpin),
     io_conf.mode = GPIO_MODE_INPUT,
     io_conf.pull_up_en = GPIO_PULLUP_ENABLE;
-    gpio_config(&io_conf);
+    ESP_ERROR_CHECK(gpio_config(&io_conf));
 
-    if(isrServiceInstalled == false){
-        gpio_install_isr_service(0); //install gpio isr service
-        isrServiceInstalled = true;
+    esp_err_t err = gpio_install_isr_service(0); // Install gpio isr service
+    if (err != ESP_ERR_INVALID_STATE)
+    { // Ignore the "ISR service is allready installed" error
+        ESP_ERROR_CHECK(err);
     }
-    
-    gpio_isr_handler_add(buttonpin, Button::gpio_isr_handler, (void*) this); //hook isr handler for specific gpio pin
 
-}
-Button::Button(){
-
+    ESP_ERROR_CHECK(gpio_isr_handler_add(buttonpin, Button::gpio_isr_handler, (void *)this)); // hook isr handler for specific gpio pin
 }
 
- 
-Button::~Button() {
+bool Button::getFlag() {
+    return flag;
+}
+
+void Button::resetFlag() {
+    flag = false;
 }

@@ -1,4 +1,4 @@
-/* * Data converted from D:/user/Robin/_APPS/Stem_coach_v2/sample_project/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from D:/user/Robin/_APPS/Stem_coach_v3/sample_project/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded

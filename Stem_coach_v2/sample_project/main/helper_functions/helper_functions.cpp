@@ -1,6 +1,7 @@
 #include "helper_functions.hpp"
+#include "defines.hpp"
 #include <time.h>
-#include <stdlib.h>
+#include <cmath>
 
 int constrain(int value, int min, int max){
     if(value < min){
@@ -28,4 +29,8 @@ int randomNumber(int min,int max){
         return (rand() % (max-min+1) ) + min ;
     }
     return -1;
+}
+
+unsigned long maxValue(size_t dataSize){
+    return (pow(2,(dataSize*8))-1);
 }

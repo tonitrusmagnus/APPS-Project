@@ -13,23 +13,21 @@ static const int RX_BUF_SIZE = 1024;
 static void IRAM_ATTR uart_intr_handle(void *arg)
 {
     
-#error To be implemented
+
+    
+//#error To be implemented
 
 }
 
-MP3Driver::MP3Driver(){
-    // Constructor here
-}
-
-MP3Driver::~MP3Driver() {
-    // Clean up any resources if needed
-}
-
-bool MP3Driver::init(gpio_num_t TxPin, gpio_num_t RxPin, uart_port_t UartNum_, int readTimeout_) {
+MP3Driver::MP3Driver(gpio_num_t TxPin_, gpio_num_t RxPin_, uart_port_t UartNum_, int readTimeout_) {
+    TxPin = TxPin_;
+    RxPin = RxPin_;
     UartNum = UartNum_;
     readTimeout = readTimeout_;
+}
 
-    /* Configure parameters of an UART driver, communication pins and install the driver */
+bool MP3Driver::init() {
+    // Configure parameters of an UART driver, communication pins and install the driver
     const uart_config_t uart_config = {
         .baud_rate = MP3_UART_BAUD,
         .data_bits = UART_DATA_8_BITS,
@@ -45,12 +43,11 @@ bool MP3Driver::init(gpio_num_t TxPin, gpio_num_t RxPin, uart_port_t UartNum_, i
         
     };
 
-    uart_intr_config(UartNum, &uart_intr_conf);
+    ESP_ERROR_CHECK(uart_intr_config(UartNum, &uart_intr_conf));
 
-    uart_driver_install(UartNum, RX_BUF_SIZE * 2, 0, 0, NULL, 0);
-    uart_param_config(UartNum, &uart_config);
-    uart_set_pin(UartNum, TxPin, RxPin, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
-
+    ESP_ERROR_CHECK(uart_driver_install(UartNum, RX_BUF_SIZE * 2, 0, 0, NULL, 0));
+    ESP_ERROR_CHECK(uart_param_config(UartNum, &uart_config));
+    ESP_ERROR_CHECK(uart_set_pin(UartNum, TxPin, RxPin, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
 
 	// enable RX interrupt
 	ESP_ERROR_CHECK(uart_enable_rx_intr(UartNum));
@@ -61,6 +58,7 @@ bool MP3Driver::init(gpio_num_t TxPin, gpio_num_t RxPin, uart_port_t UartNum_, i
 void MP3Driver::play(char folderNr, char trackNr) {
     
     sendData(MP3_PLAY_FOLDER, folderNr, trackNr);
+    playing = true;
 }
 
 void MP3Driver::playRandom(char folderNr, char amount) {
@@ -69,7 +67,18 @@ void MP3Driver::playRandom(char folderNr, char amount) {
 }
 
 bool MP3Driver::isPlaying() {
-    if (getFeedback(MP3_GET_STATUS) == MP3_STATUS_PLAYING) return true;
+    // Read status
+    int status = getFeedback(MP3_GET_STATUS);
+
+    if (status == -1) {   // If error reading feedback
+        return playing;   // Return previous playing state
+    }
+    else if (status == MP3_STATUS_PLAYING) {
+        playing = true;
+        return true;
+    }
+
+    playing = false;
     return false;
 }
 
@@ -79,44 +88,28 @@ int MP3Driver::getFeedback(char command) {
     char buffer[MP3_UART_FRAME_SIZE];
 
     uart_flush(UartNum);
-
-    if (uart_read_bytes(UartNum,buffer,MP3_UART_FRAME_SIZE,readTimeout) < MP3_UART_FRAME_SIZE) return -1;
     
+    ESP_LOGW("UART read", "started");
+
+    if (uart_read_bytes(UartNum,buffer,MP3_UART_FRAME_SIZE,readTimeout) < MP3_UART_FRAME_SIZE) {
+        ESP_LOGW("UART", "timeout");
+        return -1;
+    }
+
+    ESP_LOGW("UART buffer 3", "%x", buffer[3]);
+
     if (buffer[3] == command) {
         int result = buffer[5] << 8 | buffer[6];
+        ESP_LOGW("UART result", "%x", result);
         return result;
     }
 
     return -1;
 }
 
-// bool MP3Driver::readFeedback(char *command, char * data){
-//     char readData[25];
-//     //uart_read_bytes(UARTMP3,readData,)
-//     char startbyte;
-//     int err;
-//     size_t bufferlength;
-//     uart_get_buffered_data_len(UartNum,&bufferlength);
-//     if(bufferlength > 7){
-//         do {
-//             err = uart_read_bytes(UartNum,&readData[0],1,readTimeout);
-//             if (err == -1) {
-//                 return false;
-//             }
-
-//         } while (startbyte != MP3_UART_START_BYTE);
-        
-//         uart_read_bytes(UartNum,&readData[1],FEEDBACK_BYTE_AMOUNT-1,readTimeout);
-//         if (readData[9] != MP3_UART_END_BYTE) return false;    
-//         *command = readData[FEEDBACK_COMMAND_POS];
-//         *data = readData[FEEDBACK_DATA_POS];
-//         return true;
-//     }
-//     return false;
-// }
-
 void MP3Driver::stop() {
     sendData(MP3_STOP_PLAYBACK, 0, 0);
+    playing = false;
 }
 
 void MP3Driver::setVolume(unsigned int volume) {
@@ -144,7 +137,9 @@ void MP3Driver::sendData(char command, char dataMSB, char dataLSB)
     buffer[6] = dataLSB;
     buffer[7] = MP3_UART_END_BYTE;
 
-    uart_write_bytes(UartNum, buffer, 8);
+    int out = uart_write_bytes(UartNum, buffer, sizeof(buffer));
+    ESP_LOGW("UART write output", "%d", out);
+    if (out == -1) ESP_LOGE("UART","Parameter error");
 
     vTaskDelay(50 / portTICK_PERIOD_MS);
 }

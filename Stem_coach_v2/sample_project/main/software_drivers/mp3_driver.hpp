@@ -71,9 +71,8 @@
 #define MP3_FEEDBACK_DISABLED    0x00 // 
 
 // Status
-#define MP3_STATUS_STOP             0x0200
-#define MP3_STATUS_PLAYING          0x0201
-#define MP3_STATUS_SLEEP_STANDBY    0x0202
+#define MP3_STATUS_STOP             0x0000
+#define MP3_STATUS_PLAYING          0x0001
 #define MP3_STATUS_ERROR            0x0002
 
 #define FEEDBACK_BYTE_AMOUNT     10
@@ -83,12 +82,21 @@
 #define MP3_UART_BAUD 9600 // Default BAUD rate of module is 9600
 
 class MP3Driver {
-public:
-    MP3Driver();
-    ~MP3Driver();
+private:
+    gpio_num_t TxPin;
+    gpio_num_t RxPin;
+    uart_port_t UartNum;
+    int readTimeout;
+    bool feedbackEnabled = true;
+    bool playing;
+    
+    int getFeedback(char command);
+    void sendData(char command, char dataMSB, char dataLSB);
 
-    // initialisers
-    bool init(gpio_num_t TxPin, gpio_num_t RxPin, uart_port_t UartNum, int readTimeout_);
+public:
+    MP3Driver(gpio_num_t TxPin, gpio_num_t RxPin, uart_port_t UartNum_, int readTimeout_);
+
+    bool init();
     void play(char folderNr, char trackNr);
     void playRandom(char folderNr, char amount);
     void stop();
@@ -96,13 +104,6 @@ public:
     void repeatPlay(bool enable);
     void enableFeedback(bool feedbackEnabled_);
     bool isPlaying();
-private:
-    uart_port_t UartNum;
-    int readTimeout;
-    bool feedbackEnabled = true;
-    //bool readFeedback(char *command, char * data);
-    int getFeedback(char command);
-    void sendData(char command, char dataMSB, char dataLSB);
 };
 
 #endif //MP3_DRIVER_HPP

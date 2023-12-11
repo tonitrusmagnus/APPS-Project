@@ -18,6 +18,7 @@ void int_queue::add(int value)
     }
     queue_.push(value);
 }
+
 int int_queue::length()
 {
     return queue_.size();
@@ -25,13 +26,18 @@ int int_queue::length()
 
 int int_queue::latest()
 {
-    return queue_.back();
+    if (queue_.size() > 0)
+    {
+        return queue_.back();
+    }
+    return 0;
 }
 
 int int_queue::oldest()
 {
     return queue_.front();
 }
+
 int int_queue::lowest()
 {
     int min = 1000;
@@ -53,6 +59,7 @@ int int_queue::lowest()
     }
     return min;
 }
+
 int int_queue::highest()
 {
     int max = 0;
