@@ -29,9 +29,11 @@ void Servo::init(){
 }
 
 void Servo::setAngle(int angle) {
+    // Constrain the angle 
     angle = constrain(angle, SERVODRIVER_MIN_ANGLE, SERVODRIVER_MAX_ANGLE);
-    //int duty = map(angle,SERVODRIVER_MIN_ANGLE,SERVODRIVER_MAX_ANGLE,500,2400);  //
-    int duty = map(angle,SERVODRIVER_MIN_ANGLE,SERVODRIVER_MAX_ANGLE,SERVO_MIN_COUNT,SERVO_MAX_COUNT); //((SERVO_MIN_COUNT) + ((SERVO_MAX_COUNT - SERVO_MIN_COUNT) * angle) / (SERVO_MAX_DEGREE)); //(angle * (SERVO_MAX_PULSEWIDTH - SERVO_MIN_PULSEWIDTH) / SERVO_MAX_DEGREE) + SERVO_MIN_PULSEWIDTH;
+
+    // Calculate duty cycle
+    int duty = map(angle,SERVODRIVER_MIN_ANGLE,SERVODRIVER_MAX_ANGLE,SERVO_MIN_COUNT,SERVO_MAX_COUNT); 
     ESP_ERROR_CHECK(ledc_set_duty(SERVO_SPEED_MODE, channel, duty));
     ESP_ERROR_CHECK(ledc_update_duty(SERVO_SPEED_MODE, channel));
 }
