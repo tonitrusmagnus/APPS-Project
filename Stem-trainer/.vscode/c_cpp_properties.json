@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "name": "ESP-IDF",
+            "includePath": [
+                "${config:idf.espIdfPath}/components/**",
+                "${config:idf.espIdfPathWin}/components/**",
+                "${config:idf.espAdfPath}/components/**",
+                "${config:idf.espAdfPathWin}/components/**",
+                "${workspaceFolder}/**",
+                "C:/ESP/esp-idf/esp-idf/components/driver/i2c/include",
+                "C:/ESP/esp-idf/esp-idf/components/esp_common/include",
+                "C:/ESP/esp-idf/esp-idf/components/spi_flash/sim/stubs/freertos/include",
+                "${workspaceFolder}/main/helper_functions",
+                "${workspaceFolder}/main"
+            ],
+            "browse": {
+                "path": [
+                    "${config:idf.espIdfPath}/components",
+                    "${config:idf.espIdfPathWin}/components",
+                    "${config:idf.espAdfPath}/components/**",
+                    "${config:idf.espAdfPathWin}/components/**",
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "compilerPath": "${config:idf.toolsPath}undefined"
+        }
+    ],
+    "version": 4
+}
