@@ -7,6 +7,8 @@
 #define I2C_MASTER_TX_BUF_LEN           512
 #define I2C_TIMEOUT                     20000
 
+#define MAX7312_SEND_TIMEOUT 3 // Amount of times to send data on error before timeout
+
 #define MAX7312_ADDRESS 0x20 // When AD2, AD1 and AD0 are connected to GND (Check datasheet for different addresses)
 
 #define MAX7312_CMD_INPUT_PORT1         0x00

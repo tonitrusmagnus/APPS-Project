@@ -19,7 +19,7 @@
 #define DB_ON_LED_BUTTON_PIN GPIO_NUM_19
 #define CALIBRATE_BUTTON_PIN GPIO_NUM_10
 #define MUTE_BUTTON_PIN GPIO_NUM_14
-#define DEBOUNCE_DELAY 150 // High debounce time because of bad buttons
+#define DEBOUNCE_DELAY 200 // High debounce time because of bad buttons
 
 // Optional functions
 // #define CALIBRATE_BUTTON_ACTIVE true

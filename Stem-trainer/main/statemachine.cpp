@@ -137,7 +137,7 @@ void Statemachine::stateSetup(void)
     servoDriver.setAngle(0); // Set initial angle to 0
 
     ledDriver.init();
-    blinkingLed.init();
+    ledDriver.allOff();
 
     mp3Driver.init();
     mp3Driver.enableFeedback(false);
@@ -248,8 +248,8 @@ void Statemachine::stateCalibrate()
     
     static bool flash = 0;
     if(secondTimer.flag == true){
-        uint8_t level = flash*LED_AMOUNT;
-        ledDriver.setLevel(level);
+        if (flash)  ledDriver.allOn();
+        else        ledDriver.allOff();
         secondTimer.flag = false;
         flash = !flash;
     }

@@ -39,7 +39,7 @@ void Led_Driver::setLevel(uint8_t level)
     int data_size = sizeof(data) * 8; // A byte is 8 bits
     
     data = (maxValue(sizeof(data)) >> (data_size - level));
-    
+
     // Only change when led data is different
     if(prevData != data){
         ESP_LOGI("Led data", INT16_TO_BINARY(data));
@@ -48,4 +48,12 @@ void Led_Driver::setLevel(uint8_t level)
         ioExpander.set(data);
     }
     prevData = data;
+}
+
+void Led_Driver::allOn() {
+    setLevel(16);
+}
+
+void Led_Driver::allOff() {
+    setLevel(0);
 }
