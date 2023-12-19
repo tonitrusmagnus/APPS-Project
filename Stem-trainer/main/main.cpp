@@ -11,10 +11,6 @@
 #include "Apps_main.hpp"
 #include "software_drivers/uart.hpp"
 #include "esp_timer.h"
- 
-//For debugging:
-// #include "hardware_drivers/servo_driver.hpp"
-// #include "helper_functions/defines.hpp"
 
 enum {CORE_PROGRAM = 0, CORE_APP = 1, CORE_APP2 = 2};
 
@@ -36,23 +32,7 @@ extern "C"
 		xTaskCreatePinnedToCore(task_read_audio, 		"read audio", 		8192 , NULL, 1, NULL, CORE_APP);
 		xTaskCreate(task_run_statemachine, 	"statemachine",	8192 , NULL, 1, NULL);
 		// xTaskCreatePinnedToCore(task_run_statemachine, 	"run statemachine",	2048, NULL, 1, NULL, CORE_APP2);
-
-		//xTaskCreatePinnedToCore(debug_task, "debug", 2048, NULL, 1, NULL, CORE_APP);
-
     }
-
-
-	// void debug_task(void *params) {
-		
-		
-
-	// 	while (1)
-	// 	{
-	// 		ESP_LOGI("Test","Running...");
-	// 		vTaskDelay(1000 / portTICK_PERIOD_MS); 
-	// 	}
-
-	// }
 	
 }
 

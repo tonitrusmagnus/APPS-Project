@@ -20,7 +20,7 @@ private:
     adc1_channel_t gpio_to_adc1(gpio_num_t number);
 
 public:
-    adc(gpio_num_t adc_pin);
+    adc(adc1_channel_t adc1_channel);
     ~adc();
     float read();
 };

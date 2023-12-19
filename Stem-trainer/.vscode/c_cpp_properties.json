@@ -12,7 +12,10 @@
                 "C:/ESP/esp-idf/esp-idf/components/esp_common/include",
                 "C:/ESP/esp-idf/esp-idf/components/spi_flash/sim/stubs/freertos/include",
                 "${workspaceFolder}/main/helper_functions",
-                "${workspaceFolder}/main"
+                "${workspaceFolder}/main",
+                "C:/ESP/esp-idf/esp-idf/components/log/include",
+                "C:/ESP/esp-idf/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos",
+                "C:/ESP/esp-idf/esp-idf/components/newlib/platform_include"
             ],
             "browse": {
                 "path": [
@@ -24,7 +27,7 @@
                 ],
                 "limitSymbolsToIncludedHeaders": false
             },
-            "compilerPath": "${config:idf.toolsPath}undefined"
+            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.38.33130/bin/Hostx64/x64/cl.exe"
         }
     ],
     "version": 4

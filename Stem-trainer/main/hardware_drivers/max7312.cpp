@@ -26,7 +26,7 @@ void Max7312::init() {
         MAX7312_CMD_CONFIG_PORT2,
         0x00,
         0x00}; //set all ports to output
-    ESP_ERROR_CHECK_WITHOUT_ABORT(i2c_master_write_to_device(i2c_port, MAX7312_ADDRESS, buffer, sizeof(buffer), I2C_TIMEOUT));
+    ESP_ERROR_CHECK(i2c_master_write_to_device(i2c_port, MAX7312_ADDRESS, buffer, sizeof(buffer), I2C_TIMEOUT));
 
 }
 
@@ -34,8 +34,9 @@ void Max7312::set(uint16_t data){
 
     uint8_t buffer[3];
     buffer[0] = MAX7312_CMD_OUTPUT_PORT2;
-    buffer[1] = (uint8_t)(data);        // Lowest data bits
-    buffer[2] = (uint8_t)(data >> 8);   // Highest data bits
+    buffer[1] = (uint8_t)(data>>8); // Highest data bits
+    buffer[2] = (uint8_t)(data);    // Lowest data bits
     ESP_ERROR_CHECK_WITHOUT_ABORT(i2c_master_write_to_device(i2c_port, MAX7312_ADDRESS, buffer, sizeof(buffer), I2C_TIMEOUT));
 
+    vTaskDelay(61 / portTICK_PERIOD_MS);
 }

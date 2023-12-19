@@ -25,7 +25,4 @@ void task_read_audio(void* params);
 void task_process_audio(void *params);
 void task_run_statemachine(void *params);
 
-void queue_add(std::queue<int>& Queue, int value);
-int queue_average(const std::queue<int>& Queue) ;
-
-#endif
+#endif // APPS_MAIN

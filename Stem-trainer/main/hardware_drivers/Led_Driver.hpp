@@ -18,7 +18,7 @@ private:
 
 public:
     Led_Driver();
-    void setLevel(int levelL,int levelR);
+    void setLevel(uint8_t level);
     void init();
 };
 

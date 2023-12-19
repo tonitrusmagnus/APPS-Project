@@ -1,65 +1,24 @@
 #include "statemachine.hpp"
+//#include <portmacro.h>
 
-#include "esp_log.h"
+Statemachine::Statemachine() :
+     volumeQueue(MEASURE_QUEUE_LENGTH),
+     frequencyQueue(MEASURE_QUEUE_LENGTH),
+     calibrateQueueHZ(CALIBRATE_QUEUE_LENGTH),
+     calibrateQueueDb(CALIBRATE_QUEUE_LENGTH),
+     volumeOnLedButton(DB_ON_LED_BUTTON_PIN, GPIO_INTR_POSEDGE),
+     frequencyOnLedButton(HZ_ON_LED_BUTTON_PIN, GPIO_INTR_POSEDGE),
+     calibrateButton(CALIBRATE_BUTTON_PIN, GPIO_INTR_POSEDGE),
+     muteButton(MUTE_BUTTON_PIN, GPIO_INTR_POSEDGE),
+     servoDriver(SERVO_PIN, LEDC_TIMER_0, LEDC_CHANNEL_0),
+     blinkingLed(BLINKING_LED_PIN),
+     mp3Driver(MP3_TXD_PIN, MP3_RXD_PIN, UARTMP3,FEEDBACK_TIMEOUT_TICKS),
+     tenSecondTimer(10000),
+     secondTimer(1000)
+{}
 
-#include "hardware_drivers/buttons.hpp"
-#include "hardware_drivers/Led_Driver.hpp"
-#include "hardware_drivers/servo_driver.cpp"
-#include "software_drivers/mp3_driver.hpp"
-#include "helper_functions/timer.hpp"
-#include "helper_functions/queue.hpp"
-#include "helper_functions/defines.hpp"
-#include "helper_functions/audioDefines.hpp"
-#include "helper_functions/helper_functions.hpp" 
-
-gpio_num_t LedPins[LED_AMOUNT] = {GPIO_NUM_4, GPIO_NUM_15, GPIO_NUM_2, GPIO_NUM_5, GPIO_NUM_13, GPIO_NUM_12, GPIO_NUM_14, GPIO_NUM_27};
-
-int_queue volumeQueue(MEASURE_QUEUE_LENGTH);
-int_queue frequencyQueue(MEASURE_QUEUE_LENGTH);
-int_queue calibrateQueueHZ(CALIBRATE_QUEUE_LENGTH);
-int_queue calibrateQueueDb(CALIBRATE_QUEUE_LENGTH);
-
-Button volumeOnLedButton(DB_ON_LED_BUTTON_PIN, GPIO_INTR_POSEDGE);
-Button frequencyOnLedButton(HZ_ON_LED_BUTTON_PIN, GPIO_INTR_POSEDGE);
-    
-#if CALIBRATE_BUTTON_ACTIVE == true
-Button calibrateButton(CALIBRATE_BUTTON_PIN, GPIO_INTR_POSEDGE);
-#endif
-#if MUTE_BUTTON_ACTIVE == true
-Button muteButton(MUTE_BUTTON_PIN, GPIO_INTR_POSEDGE);
-#endif
-
-
-Led_Driver ledDriver;
-Servo servoDriver(SERVO_PIN, LEDC_TIMER_0, LEDC_CHANNEL_0);
-Leds blinkingLed(BLINKING_LED_PIN);
-
-MP3Driver mp3Driver(MP3_TXD_PIN, MP3_RXD_PIN, UARTMP3,FEEDBACK_TIMEOUT_TICKS);
-bool mp3IsPlaying = false;
-
-Timer tenSecondTimer(10000);
-Timer secondTimer(1000);
-
-int currentState = setup;
-int nextState = setup;
-int feedbackState = volumeOnLed;
-int volume;
-int frequency;
-bool dataReady = 0;
-bool muted = false;
-
-// Thresholds
-int thres_Hz = 90;
-int thres_dB = 45;
-
-void statemachine(bool *_dataReady, int _volume, int _frequency)
+void Statemachine::run()
 {
-    dataReady = *_dataReady;
-    //ESP_LOGW("ready 1?" ,"dataReady:%d, _dataReady:%d", dataReady, *_dataReady);
-
-    volume = _volume;
-    frequency = _frequency;
-
     switch (currentState)
     {
     case setup:
@@ -69,9 +28,9 @@ void statemachine(bool *_dataReady, int _volume, int _frequency)
         nextState = relax;
         break;
     case relax:
-        // ESP_LOGI("Current State:", "relax");
-        //  relax excercises
+    
 #if RELAX_ACTIVE == true
+        // Run relax excercise
         stateRelax();
 
         // End relax state when audio is finished or when calibrate button is pressed to stop manually
@@ -103,7 +62,6 @@ void statemachine(bool *_dataReady, int _volume, int _frequency)
 
         nextState = feedback;
 
-#if CALIBRATE_BUTTON_ACTIVE == true
         if (calibrateButton.getFlag() == true)
         {
             ESP_LOGW("Calibrate Button","Pressed, to state cal.");
@@ -115,50 +73,47 @@ void statemachine(bool *_dataReady, int _volume, int _frequency)
             secondTimer.start();
             mp3Driver.play(FOLDER_CALLIBRATE,CALLIBRATE_FILE_STARTED);
         }
-#endif
+
         break;
     case feedback:
-        // ESP_LOGI("Current State:", "feedback");
 
         // Give feedback
         stateFeedback();
+
         nextState = process;
         break;
 
     case calibrate:
-#if CALIBRATE_BUTTON_ACTIVE == true
-        
         // Calibrate voice trainer
         stateCalibrate();
 
-        // If callibration button pressed, go back to process
+        // If callibration button pressed, get thershold values go back to process
         if ((calibrateButton.getFlag() == true))
         {    
-            ESP_LOGW("Calibrate Button","Pressed, to state process");
-
             vTaskDelay(DEBOUNCE_DELAY / portTICK_PERIOD_MS); // Delay for debounce
             calibrateButton.resetFlag();
 
+            // Set new threshold values if enough calibration samples collected
             if(calibrateQueueDb.length() > MIN_CALIBRATIONVALUES_AMOUNT){
                 thres_dB = calibrateQueueDb.highest() - DB_CALIBRATION_OFFSET;
                 thres_Hz = calibrateQueueHZ.lowest() + HZ_CALIBRATION_OFFSET;
             }
-            mp3Driver.play(FOLDER_CALLIBRATE,CALLIBRATE_FILE_STOPPED);
-            tenSecondTimer.reset(); // Reset timer for audio feedback
-
-            secondTimer.stop();
-
             ESP_LOGI("Volume result", "%d", thres_dB);
             ESP_LOGI("Frequency result", "%d", thres_Hz);
+
+            // Clear queues for next calibration
             calibrateQueueDb.clear();
             calibrateQueueHZ.clear();
 
+            mp3Driver.play(FOLDER_CALLIBRATE,CALLIBRATE_FILE_STOPPED);
+            tenSecondTimer.reset(); // Reset timer for audio feedback
+
+            // Stop timer for blinking all leds
+            secondTimer.stop();
+            
             nextState = process;
         }
 
-#else
-        nextState = process;
-#endif
         break;
     default:
         ESP_LOGE("State error", "Undefined state");
@@ -167,13 +122,14 @@ void statemachine(bool *_dataReady, int _volume, int _frequency)
     }
 
     blinkingLed.inverse(); // Inverse led to blink while active
-    *_dataReady = dataReady;
-    //ESP_LOGW("ready? 2" ,"dataReady:%d, _dataReady:%d", dataReady, *_dataReady);
+    
     currentState = nextState;
 }
 
-void stateSetup(void)
+void Statemachine::stateSetup(void)
 {
+    vTaskDelay(100 / portTICK_PERIOD_MS); // Delay wait for devices to start up before initialising
+
     blinkingLed.init();
     blinkingLed.setState(false); // Blinking led off on startup
 
@@ -195,19 +151,15 @@ void stateSetup(void)
     volumeOnLedButton.init();
     frequencyOnLedButton.init();
     
-#if CALIBRATE_BUTTON_ACTIVE == true
     calibrateButton.init();
-#endif
-#if MUTE_BUTTON_ACTIVE == true
     muteButton.init();
-#endif
 
     vTaskDelay(500 / portTICK_PERIOD_MS); // Delay wait for devices to be set up
     
     ESP_LOGI("Setup", "Completed");
 }
 
-void stateRelax(void)
+void Statemachine::stateRelax(void)
 {
     ESP_LOGI("Relaxation", "playing");
 
@@ -222,7 +174,7 @@ void stateRelax(void)
     vTaskDelay(500 / portTICK_PERIOD_MS); // Delay to prevent reading the mp3 player too fast
 }
 
-void stateProcess()
+void Statemachine::stateProcess()
 {   
     if (dataReady == true)
     {
@@ -265,7 +217,6 @@ void stateProcess()
         tenSecondTimer.reset(); // Reset timer for audio feedback
     }
 
-#if MUTE_BUTTON_ACTIVE == true
     if (muteButton.getFlag() == true)
     {
         vTaskDelay(DEBOUNCE_DELAY / portTICK_PERIOD_MS); // Delay for debounce
@@ -281,30 +232,24 @@ void stateProcess()
         }
         tenSecondTimer.reset();
     }
-#endif
 }
 
-void stateFeedback()
+void Statemachine::stateFeedback()
 {
     // display the visual feedback
     visualFeedback();
-    
-#if PROTOTYPE_3 == false
 
     // send the audio feedback
     audioFeedback();
-
-#endif 
-
 }
 
-void stateCalibrate()
+void Statemachine::stateCalibrate()
 {
     
     static bool flash = 0;
     if(secondTimer.flag == true){
-        int level = flash*LED_AMOUNT;
-        ledDriver.setLevel(level,level);
+        uint8_t level = flash*LED_AMOUNT;
+        ledDriver.setLevel(level);
         secondTimer.flag = false;
         flash = !flash;
     }
@@ -320,14 +265,14 @@ void stateCalibrate()
     }
 }
 
-void visualFeedback()
+void Statemachine::visualFeedback()
 {
     // Calculate the frequency and volume fractions
     float fractionFrequency = (float)(HZ_THRES_MAX - (constrain(frequencyQueue.latest(), thres_Hz, HZ_THRES_MAX))) / (float)(HZ_THRES_MAX - thres_Hz);
     float fractionVolume = (float)(constrain(volumeQueue.latest(), DB_THRES_MIN, thres_dB) - DB_THRES_MIN) / (float)(thres_dB - DB_THRES_MIN);
 
 #if PROTOTYPE_3 == false
-    int ledLevel = 0;
+    uint8_t ledLevel = 0;
     int servoLevel = 0;
 
     //ESP_LOGW("fractions:","V: %lf\tF: %lf", fractionVolume, fractionFrequency);
@@ -351,7 +296,7 @@ void visualFeedback()
 
     }
     
-    ledDriver.setLevel(ledLevel,0);
+    ledDriver.setLevel(ledLevel+1); // +1 to always have at least one led on
     servoDriver.setAngle(servoLevel);
 #else
     int ledLevelL = 0;
@@ -372,7 +317,7 @@ void visualFeedback()
 
 }
 
-void audioFeedback()
+void Statemachine::audioFeedback()
 {
 
     if (tenSecondTimer.flag == true && muted == false)
@@ -381,8 +326,9 @@ void audioFeedback()
         
         ESP_LOGI("Average Volume", "%lf", volumeQueue.average());
         ESP_LOGI("Average Frequency", "%lf", volumeQueue.average());
-
-        if (feedbackState == frequencyOnLed && volumeQueue.average() >= thres_dB)
+        // logic to give auditive feedback
+        //
+        if (feedbackState == frequencyOnLed && volumeQueue.average() <= thres_dB) 
         {
             mp3Driver.playRandom(FOLDER_VOLUME_GOOD, VOLUME_GOOD_FILES_AMOUNT);
             ESP_LOGI("FEEDBACK", "VOLUME_GOOD");
@@ -403,4 +349,13 @@ void audioFeedback()
             ESP_LOGI("FEEDBACK", "FREQUENCY_LOWER");
         }
     }
+}
+
+void Statemachine::setValues(int frequency_, int volume_) {
+    // Copy values
+    frequency = frequency_;
+    volume = volume_;
+    
+    // Data is ready to be used
+    dataReady = true;
 }

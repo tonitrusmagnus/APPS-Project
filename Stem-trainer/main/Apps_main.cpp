@@ -32,6 +32,12 @@
 #include "statemachine.hpp"
 #include "helper_functions/defines.hpp"
 
+// Global values
+int volumeValue = 0;
+int frequencyValue = 0;
+bool dataReady = false;
+
+
 static constexpr bool is_powerof2(size_t size)
 {
 	return size && ((size & (size - 1)) == 0);
@@ -61,11 +67,7 @@ std::vector<float> audio_vec1(SAMPLES_LENGTH);
 std::vector<float> audio_vec2(SAMPLES_LENGTH);
 static_assert(SAMPLES_LENGTH, "SAMPLES_LENGTH, which determines vector size, must be a power of 2!");
 std::vector<float> audiodata;
-//datatransfer datatrans;
-int volumeValue = 0;
-int frequencyValue = 0;
-bool _dataReady = false;
-
+Statemachine statemachine;
 		
 volatile int Mode = 1;
 
@@ -96,8 +98,8 @@ void process_audio(std::vector<float> &audio)
 		volumeValue = Decibel;			 // Final usable volume value
 		frequencyValue = peak.frequency; // Final usable frequency value
 
-		// Data is ready to be used by statemachine
-		_dataReady = true;
+		// Send data to statemachine to be used
+		statemachine.setValues(frequencyValue, volumeValue);
 	}
 }
 
@@ -144,7 +146,7 @@ void task_run_statemachine(void *params)
 {
 	while (true)
 	{
-		statemachine(&_dataReady, volumeValue, frequencyValue);	
+		statemachine.run();	
 		
     	vTaskDelay(10 / portTICK_PERIOD_MS); // Wait 10ms to enable the FreeRTOS idle background tasks to run
 	}

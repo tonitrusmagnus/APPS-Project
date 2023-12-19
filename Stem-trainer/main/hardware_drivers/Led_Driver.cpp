@@ -4,6 +4,26 @@
 #include "helper_functions/helper_functions.hpp"
 #include <cmath>
 
+// Macro to print a 16-bit integer in binary
+#define INT16_TO_BINARY(byte) \
+    "%c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c", \
+    ((byte) & 0x8000 ? '1' : '0'), \
+    ((byte) & 0x4000 ? '1' : '0'), \
+    ((byte) & 0x2000 ? '1' : '0'), \
+    ((byte) & 0x1000 ? '1' : '0'), \
+    ((byte) & 0x800 ? '1' : '0'), \
+    ((byte) & 0x400 ? '1' : '0'), \
+    ((byte) & 0x200 ? '1' : '0'), \
+    ((byte) & 0x100 ? '1' : '0'), \
+    ((byte) & 0x80 ? '1' : '0'), \
+    ((byte) & 0x40 ? '1' : '0'), \
+    ((byte) & 0x20 ? '1' : '0'), \
+    ((byte) & 0x10 ? '1' : '0'), \
+    ((byte) & 0x8 ? '1' : '0'), \
+    ((byte) & 0x4 ? '1' : '0'), \
+    ((byte) & 0x2 ? '1' : '0'), \
+    ((byte) & 0x1 ? '1' : '0') 
+
 Led_Driver::Led_Driver() : ioExpander(LED_SDA_PIN, LED_SCL_PIN, LED_I2C_PORT) 
 {
 }
@@ -13,22 +33,16 @@ void Led_Driver::init(){
     ioExpander.set(0); // All leds off on initialisation
 }
 
-void Led_Driver::setLevel(int levelL,int levelR)
+void Led_Driver::setLevel(uint8_t level)
 {
     uint16_t data = 0; 
-    uint8_t dataL = 0;
-    uint8_t dataR = 0;
-    int data_sizeL = sizeof(dataL)*8; // Byte is 8 bits
-    int data_sizeR = sizeof(dataR)*8;
+    int data_size = sizeof(data) * 8; // A byte is 8 bits
     
-    dataL = (maxValue(sizeof(dataL)) >> (data_sizeL - levelL));
-    dataR = (maxValue(sizeof(dataR)) >> (data_sizeR - levelR));
+    data = (maxValue(sizeof(data)) >> (data_size - level));
     
-    data = (dataR << 8) | (dataL);
-
     // Only change when led data is different
     if(prevData != data){
-        ESP_LOGI("Led data","0x%04x",data);
+        ESP_LOGI("Led data", INT16_TO_BINARY(data));
 
         // Write led data to the i/o expander
         ioExpander.set(data);
