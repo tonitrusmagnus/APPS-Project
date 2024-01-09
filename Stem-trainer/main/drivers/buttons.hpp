@@ -12,6 +12,7 @@
 #include "freertos/queue.h"
 #include "driver/gpio.h"
 /*!
+*@class Button
 *@brief Button class with interrupt
 */
 class Button
