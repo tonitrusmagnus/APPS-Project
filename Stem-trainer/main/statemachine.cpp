@@ -1,5 +1,4 @@
 #include "statemachine.hpp"
-//#include <portmacro.h>
 
 Statemachine::Statemachine() :
      volumeQueue(MEASURE_QUEUE_LENGTH),
@@ -10,7 +9,6 @@ Statemachine::Statemachine() :
      frequencyOnLedButton(HZ_ON_LED_BUTTON_PIN, GPIO_INTR_POSEDGE),
      calibrateButton(CALIBRATE_BUTTON_PIN, GPIO_INTR_POSEDGE),
      muteButton(MUTE_BUTTON_PIN, GPIO_INTR_POSEDGE),
-     servoDriver(SERVO_PIN, LEDC_TIMER_0, LEDC_CHANNEL_0),
      blinkingLed(BLINKING_LED_PIN),
      mp3Driver(MP3_TXD_PIN, MP3_RXD_PIN, UARTMP3,FEEDBACK_TIMEOUT_TICKS),
      tenSecondTimer(10000),
@@ -133,15 +131,12 @@ void Statemachine::stateSetup(void)
     blinkingLed.init();
     blinkingLed.setState(false); // Blinking led off on startup
 
-    servoDriver.init();
-    servoDriver.setAngle(0); // Set initial angle to 0
-
     ledDriver.init();
     ledDriver.allOff();
 
     mp3Driver.init();
     mp3Driver.enableFeedback(false);
-    mp3Driver.setVolume(30); // half volume
+    mp3Driver.setVolume(30); // Full volume
 
     tenSecondTimer.init();
     tenSecondTimer.stop();
@@ -271,49 +266,22 @@ void Statemachine::visualFeedback()
     float fractionFrequency = (float)(HZ_THRES_MAX - (constrain(frequencyQueue.latest(), thres_Hz, HZ_THRES_MAX))) / (float)(HZ_THRES_MAX - thres_Hz);
     float fractionVolume = (float)(constrain(volumeQueue.latest(), DB_THRES_MIN, thres_dB) - DB_THRES_MIN) / (float)(thres_dB - DB_THRES_MIN);
 
-#if PROTOTYPE_3 == false
     uint8_t ledLevel = 0;
-    int servoLevel = 0;
 
-    //ESP_LOGW("fractions:","V: %lf\tF: %lf", fractionVolume, fractionFrequency);
-
-    // Set led and servo levels depending on the feedback state
+    // Set led level depending on the feedback state
     if (feedbackState == volumeOnLed)
     {
         // Calculate the amount of leds to be turned on
         ledLevel = constrain(fractionVolume * LED_AMOUNT, 0, LED_AMOUNT);
-
-        // Calculate angle for the servo. invert fraction to make servo move to the right
-        servoLevel = mapDouble(1-fractionVolume, 0, 1, SERVO_MIN_ANGLE, SERVO_MAX_ANGLE);
     }
     else if (feedbackState == frequencyOnLed)
     {
         // Calculate the amount of leds to be turned on
         ledLevel = constrain(fractionFrequency * LED_AMOUNT, 0, LED_AMOUNT);
-        
-        // Calculate angle for the servo. invert fraction to make servo move to the right
-        servoLevel = mapDouble(1-fractionFrequency, 0, 1, SERVO_MIN_ANGLE, SERVO_MAX_ANGLE);
 
     }
     
     ledDriver.setLevel(ledLevel+1); // +1 to always have at least one led on
-    servoDriver.setAngle(servoLevel);
-#else
-    int ledLevelL = 0;
-    int ledLevelR = 0;
-
-    if (feedbackState == volumeOnLed)
-    {
-        ledLevelR = constrain(fractionVolume * LED_AMOUNT, 0, LED_AMOUNT);
-    }
-    else if (feedbackState == frequencyOnLed)
-    {
-        ledLevelL = constrain(fractionFrequency * LED_AMOUNT, 0, LED_AMOUNT);
-    }
-
-
-    ledDriver.setLevel(ledLevelL,ledLevelR);
-#endif
 
 }
 

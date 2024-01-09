@@ -2,6 +2,9 @@
 
 #define DEBUGGING true
 
+// Size of the stack size for tasks
+#define TASK_STACK_SIZE 8192
+
 // Queue length for measurement queues
 #define MEASURE_QUEUE_LENGTH 4
 

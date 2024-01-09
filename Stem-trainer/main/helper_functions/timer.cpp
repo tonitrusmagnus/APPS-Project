@@ -3,7 +3,7 @@
 void IRAM_ATTR Timer::timer_isr(void* arg) {
     Timer* instance = reinterpret_cast<Timer*>(arg);
     if(instance){
-        instance->timer_interupt();
+        instance->timer_interrupt();
     }
 }
 
@@ -28,9 +28,9 @@ void Timer::init()
     ESP_LOGI("timer","setup");
 }
 
-void Timer::timer_interupt(void){
+void Timer::timer_interrupt(void){
     flag = true;
-    //ESP_LOGI("timer","interupt");
+    //ESP_LOGI("timer","interrupt");
 }
 
 void Timer::reset(){

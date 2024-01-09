@@ -1,16 +1,16 @@
 #include "queue.hpp"
 
-int_queue::int_queue(int length)
+IntQueue::IntQueue(int length)
 {
     setLength(length);
 }
 
-void int_queue::setLength(int length)
+void IntQueue::setLength(int length)
 {
     length_ = length;
 }
 
-void int_queue::add(int value)
+void IntQueue::add(int value)
 {
     if (queue_.size() >= length_)
     {
@@ -19,12 +19,12 @@ void int_queue::add(int value)
     queue_.push(value);
 }
 
-int int_queue::length()
+int IntQueue::length()
 {
     return queue_.size();
 }
 
-int int_queue::latest()
+int IntQueue::latest()
 {
     if (queue_.size() > 0)
     {
@@ -33,12 +33,12 @@ int int_queue::latest()
     return 0;
 }
 
-int int_queue::oldest()
+int IntQueue::oldest()
 {
     return queue_.front();
 }
 
-int int_queue::lowest()
+int IntQueue::lowest()
 {
     int min = 1000;
     if (queue_.size() > 0)
@@ -60,7 +60,7 @@ int int_queue::lowest()
     return min;
 }
 
-int int_queue::highest()
+int IntQueue::highest()
 {
     int max = 0;
     if ((queue_.size()) > 0)
@@ -82,7 +82,7 @@ int int_queue::highest()
     return max;
 }
 
-float int_queue::average()
+float IntQueue::average()
 {
     int sum = 0.0;
     int num_elements = queue_.size();
@@ -99,14 +99,14 @@ float int_queue::average()
             temp_queue.pop();
         }
 
-        // Calculate the mean
+        // Calculate the average
         average = round(sum / num_elements);
     }
 
     return average;
 }
 
-void int_queue::clear() {
+void IntQueue::clear() {
     while(queue_.size() > 0){
         queue_.pop();
     }

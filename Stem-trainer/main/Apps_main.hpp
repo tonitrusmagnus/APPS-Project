@@ -19,10 +19,23 @@
 #include <queue>
 
 #define QUEUE_MAX_SIZE 6
-
-extern volatile int Mode;
+#define MIN_PEAK_AMPLITUDE 0.13f
+/**
+ * @brief Reads audio data and updates the global variables accordingly.
+ * @param params Unused parameter.
+ */
 void task_read_audio(void* params);
+
+/**
+ * @brief Processes audio data and performs necessary computations.
+ * @param params Unused parameter.
+ */
 void task_process_audio(void *params);
+
+/**
+ * @brief Runs the main state machine logic.
+ * @param params Unused parameter.
+ */
 void task_run_statemachine(void *params);
 
 #endif // APPS_MAIN

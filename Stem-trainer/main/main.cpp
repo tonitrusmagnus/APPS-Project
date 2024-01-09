@@ -7,16 +7,15 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_log.h"
+#include "esp_timer.h"
 
 #include "Apps_main.hpp"
-#include "software_drivers/uart.hpp"
-#include "esp_timer.h"
+#include "helper_functions/defines.hpp"
 
 enum {CORE_PROGRAM = 0, CORE_APP = 1, CORE_APP2 = 2};
 
 extern "C"
 {
-	void debug_task(void *params);
     void app_main(void)
     {
         esp_err_t err = nvs_flash_init();
@@ -25,14 +24,12 @@ extern "C"
 			err = nvs_flash_init();
 		}
 		ESP_ERROR_CHECK(err);
-		//_uartInit();
 		ESP_LOGI("Start","running..");
 
-		xTaskCreatePinnedToCore(task_process_audio, 	"process audio", 	8192 , NULL, 1, NULL, CORE_PROGRAM);
-		xTaskCreatePinnedToCore(task_read_audio, 		"read audio", 		8192 , NULL, 1, NULL, CORE_APP);
-		xTaskCreate(task_run_statemachine, 	"statemachine",	8192 , NULL, 1, NULL);
-		// xTaskCreatePinnedToCore(task_run_statemachine, 	"run statemachine",	2048, NULL, 1, NULL, CORE_APP2);
+		// Create tasks to run on 2 ESP cores
+		xTaskCreatePinnedToCore(task_process_audio, 	"process audio", 	TASK_STACK_SIZE , NULL, 1, NULL, CORE_PROGRAM);
+		xTaskCreatePinnedToCore(task_read_audio, 		"read audio", 		TASK_STACK_SIZE , NULL, 1, NULL, CORE_APP);
+		xTaskCreate(task_run_statemachine, 	"statemachine",	TASK_STACK_SIZE , NULL, 1, NULL);
     }
 	
 }
-

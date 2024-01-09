@@ -27,6 +27,7 @@
 #include "esp_system.h"
 
 /**
+ * @class Microphone
  * @brief An interface to ESP32's I2S specifically for microphone usage.
  * 
  */

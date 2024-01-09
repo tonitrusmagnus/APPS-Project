@@ -28,7 +28,6 @@
 
 #include "microphone/microphone_i2s.hpp"
 #include "microphone/signalprocessing.hpp"
-#include "software_drivers/uart.hpp"
 #include "statemachine.hpp"
 #include "helper_functions/defines.hpp"
 
@@ -61,15 +60,13 @@ namespace dsp
 }
 
 // read_audio() globals
-Microphone inmp441(I2S_NUM_0, INMP441_BCK, INMP441_WS, INMP441_DATA);// Pins: bck, ws, data
+Microphone inmp441(I2S_NUM_0, INMP441_BCK, INMP441_WS, INMP441_DATA);
 constexpr size_t SAMPLES_LENGTH = Microphone::buffer_size * 4;
 std::vector<float> audio_vec1(SAMPLES_LENGTH);
 std::vector<float> audio_vec2(SAMPLES_LENGTH);
 static_assert(SAMPLES_LENGTH, "SAMPLES_LENGTH, which determines vector size, must be a power of 2!");
 std::vector<float> audiodata;
 Statemachine statemachine;
-		
-volatile int Mode = 1;
 
 void process_audio(std::vector<float> &audio)
 {
@@ -94,7 +91,7 @@ void process_audio(std::vector<float> &audio)
 
     peak = dsp::get_peak(audio, min_pos, max_pos + 1, Microphone::sample_rate);
 
-	if(peak.amplitude > 0.13f){
+	if(peak.amplitude > MIN_PEAK_AMPLITUDE){
 		volumeValue = Decibel;			 // Final usable volume value
 		frequencyValue = peak.frequency; // Final usable frequency value
 
@@ -106,27 +103,21 @@ void process_audio(std::vector<float> &audio)
 
 void task_read_audio(void *params)
 {
-	while (true)
-	{
-		if (inmp441.read_full(audio_vec1) == ESP_OK)
-		{
+	while (true) {
+		// Read 2 audio vectors 
+		if (inmp441.read_full(audio_vec1) == ESP_OK) {
 			audio_status = AudioStatus::VEC1_READY;
 		}
-
-		if (inmp441.read_full(audio_vec2) == ESP_OK)
-		{
+		if (inmp441.read_full(audio_vec2) == ESP_OK) {
 			audio_status = AudioStatus::VEC2_READY;
 		}
 	}
 }
 
-void task_process_audio(void *params)
-{
+void task_process_audio(void *params) {
 	
-	while (true)
-	{
-		switch (audio_status)
-		{
+	while (true) 	{
+		switch (audio_status) {
 		case AudioStatus::VEC1_READY:
 			audio_status = AudioStatus::WAIT;
 			process_audio(audio_vec1);
@@ -142,10 +133,8 @@ void task_process_audio(void *params)
 	}
 }
 
-void task_run_statemachine(void *params)
-{
-	while (true)
-	{
+void task_run_statemachine(void *params) {
+	while (true) {
 		statemachine.run();	
 		
     	vTaskDelay(10 / portTICK_PERIOD_MS); // Wait 10ms to enable the FreeRTOS idle background tasks to run

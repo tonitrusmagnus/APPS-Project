@@ -1,3 +1,5 @@
+// All the defines for the numbers of the folders and amount of files 
+// on the SD-card for the MP3 Player
 #define FOLDER_VOLUME_GOOD 1
 #define FOLDER_VOLUME_HIGHER 2
 #define FOLDER_FREQUENCY_GOOD 3

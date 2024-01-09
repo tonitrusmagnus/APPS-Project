@@ -15,6 +15,7 @@
     "array": "cpp",
     "string": "cpp",
     "string_view": "cpp",
-    "ios": "cpp"
+    "ios": "cpp",
+    "ranges": "cpp"
   }
 }
