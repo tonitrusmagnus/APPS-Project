@@ -86,7 +86,7 @@ float IntQueue::average()
 {
     int sum = 0.0;
     int num_elements = queue_.size();
-    int average = 0;
+    int result = 0;
 
     if (num_elements > 0)
     {
@@ -100,10 +100,10 @@ float IntQueue::average()
         }
 
         // Calculate the average
-        average = round(sum / num_elements);
+        result = round(sum / num_elements);
     }
 
-    return average;
+    return result;
 }
 
 void IntQueue::clear() {

@@ -7,10 +7,11 @@
   "idf.espIdfPathWin": "c:\\ESP\\esp-idf\\esp-idf",
   "idf.adapterTargetName": "esp32s3",
   "idf.openOcdConfigs": [
-    "board/esp32s3-bridge.cfg"
+    "interface/ftdi/esp32_devkitj_v1.cfg",
+    "target/esp32s3.cfg"
   ],
   "idf.flashType": "UART",
-  "idf.portWin": "COM7",
+  "idf.portWin": "COM9",
   "files.associations": {
     "array": "cpp",
     "string": "cpp",

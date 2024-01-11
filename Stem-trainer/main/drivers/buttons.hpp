@@ -46,14 +46,14 @@ private:
 
 public:
     /**
-     * @brief Constructor
+     * @brief Constructor for Button class
      * @param buttonpin The GPIO pin number to which the button is connected (should be GPIO_NUM_xx).
      * @param interruptedge The interrupt edge type for the button (choose from GPIO_INTR_NEGEDGE or GPIO_INTR_POSEDGE).
     */
     Button(gpio_num_t buttonpin, gpio_int_type_t interruptedge);
     
     /**
-     *@brief Initialisation function
+     *@brief Initializes the GPIO and interrupt handler for the button
     */
     void init();
     /**

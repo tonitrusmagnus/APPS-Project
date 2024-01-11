@@ -121,16 +121,50 @@ public:
      * @param TxPin GPIO pin connected to the TX pin of the MP3 player module.
      * @param RxPin GPIO pin connected to the RX pin of the MP3 player module.
      * @param UartNum_ UART port used for communication.
-     * @param readTimeout_ Timeout for reading from UART.
+     * @param readTimeout_ Timeout time for reading from UART.
      */
     MP3Driver(gpio_num_t TxPin, gpio_num_t RxPin, uart_port_t UartNum_, int readTimeout_);
 
-    bool init();
+     /**
+     * @brief Initializes the MP3 driver.
+     */
+    void init();
+
+    /**
+     * @brief Plays a specific track from a specified folder.
+     * @param folderNr Folder number.
+     * @param trackNr Track number.
+     */
     void play(char folderNr, char trackNr);
+
+    /**
+     * @brief Plays a specified number of random tracks from a folder.
+     * @param folderNr Folder number.
+     * @param amount Number of tracks in the folder to choose random from.
+     */
     void playRandom(char folderNr, char amount);
+
+    /**
+     * @brief Stops playback.
+     */
     void stop();
-    void setVolume(unsigned int volume); // 0 to 30
+
+    /**
+     * @brief Sets the volume of the MP3 player.
+     * @param volume Volume level (0 to 30).
+     */
+    void setVolume(unsigned int volume);
+
+    /**
+     * @brief Enables or disables feedback from the MP3 player module.
+     * @param feedbackEnabled_ Flag indicating whether ack from MP3 player is enabled.
+     */
     void enableFeedback(bool feedbackEnabled_);
+
+    /**
+     * @brief Checks if the MP3 player is currently playing.
+     * @return True if playing, false otherwise.
+     */
     bool isPlaying();
 };
 

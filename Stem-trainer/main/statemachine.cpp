@@ -23,8 +23,11 @@ void Statemachine::run()
         ESP_LOGI("Current State:", "setup");
         //  Initialisations here
         stateSetup();
+
+        // Always go to relax state after setup
         nextState = relax;
         break;
+
     case relax:
     
 #if RELAX_ACTIVE == true
@@ -42,34 +45,41 @@ void Statemachine::run()
             frequencyOnLedButton.resetFlag();
             volumeOnLedButton.resetFlag();
             
+            // Start and reset ten second timer for auditive feedback
             tenSecondTimer.start();
             tenSecondTimer.reset();
             
             ESP_LOGI("Relaxation", "Completed");
+
             nextState = process;
         }
 #else 
+        // If relaxation excercise is turned off, go to process state
         nextState = process;
 #endif
         break;
+
     case process:
         
         //  Process values
         stateProcess();
-        dataReady = 0;
 
+        // Next state is normally feedback state
         nextState = feedback;
 
-        if (calibrateButton.getFlag() == true)
-        {
+        // But go to calibration state if calibrate button is pressed
+        if (calibrateButton.getFlag() == true) {
             ESP_LOGW("Calibrate Button","Pressed, to state cal.");
 
             vTaskDelay(DEBOUNCE_DELAY / portTICK_PERIOD_MS); // Delay for debounce
             calibrateButton.resetFlag();
             
             nextState = calibrate;
-            secondTimer.start();
-            mp3Driver.play(FOLDER_CALLIBRATE,CALLIBRATE_FILE_STARTED);
+            
+            // Start the seconds timer for blinking leds
+            secondTimer.start(); 
+            // Run calibration audio file
+            mp3Driver.play(FOLDER_CALLIBRATE,CALLIBRATE_FILE_STARTED); 
         }
 
         break;
@@ -78,6 +88,7 @@ void Statemachine::run()
         // Give feedback
         stateFeedback();
 
+        // Always go back to process state after feedback
         nextState = process;
         break;
 
@@ -85,25 +96,27 @@ void Statemachine::run()
         // Calibrate voice trainer
         stateCalibrate();
 
-        // If callibration button pressed, get thershold values go back to process
+        // If callibration button pressed, get the thershold values go back to process state
         if ((calibrateButton.getFlag() == true))
         {    
             vTaskDelay(DEBOUNCE_DELAY / portTICK_PERIOD_MS); // Delay for debounce
             calibrateButton.resetFlag();
 
-            // Set new threshold values if enough calibration samples collected
+            // Set new threshold values, if enough calibration samples collected
             if(calibrateQueueDb.length() > MIN_CALIBRATIONVALUES_AMOUNT){
                 thres_dB = calibrateQueueDb.highest() - DB_CALIBRATION_OFFSET;
                 thres_Hz = calibrateQueueHZ.lowest() + HZ_CALIBRATION_OFFSET;
             }
-            ESP_LOGI("Volume result", "%d", thres_dB);
-            ESP_LOGI("Frequency result", "%d", thres_Hz);
+            ESP_LOGI("Volume cal result", "%d", thres_dB);
+            ESP_LOGI("Frequency cal result", "%d", thres_Hz);
 
             // Clear queues for next calibration
             calibrateQueueDb.clear();
             calibrateQueueHZ.clear();
 
+            // Run calibration end audio file
             mp3Driver.play(FOLDER_CALLIBRATE,CALLIBRATE_FILE_STOPPED);
+
             tenSecondTimer.reset(); // Reset timer for audio feedback
 
             // Stop timer for blinking all leds
@@ -113,8 +126,10 @@ void Statemachine::run()
         }
 
         break;
+        
     default:
         ESP_LOGE("State error", "Undefined state");
+        // Go back to process state when program ended up in an undefined state
         nextState = process;
         break;
     }
@@ -293,7 +308,7 @@ void Statemachine::audioFeedback()
         tenSecondTimer.flag = false;
         
         ESP_LOGI("Average Volume", "%lf", volumeQueue.average());
-        ESP_LOGI("Average Frequency", "%lf", volumeQueue.average());
+        ESP_LOGI("Average Frequency", "%lf", frequencyQueue.average());
         // logic to give auditive feedback
         //
         if (feedbackState == frequencyOnLed && volumeQueue.average() <= thres_dB) 

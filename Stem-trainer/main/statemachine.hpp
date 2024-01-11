@@ -14,6 +14,7 @@
 #include "drivers/buttons.hpp"
 #include "drivers/led_driver.hpp"
 #include "drivers/mp3_driver.hpp"
+#include "drivers/leds.hpp"
 #include "helper_functions/timer.hpp"
 #include "helper_functions/queue.hpp"
 #include "helper_functions/defines.hpp"
