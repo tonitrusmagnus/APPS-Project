@@ -41,9 +41,9 @@ void MP3Driver::play(char folderNr, char trackNr) {
     playing = true;
 }
 
-void MP3Driver::playRandom(char folderNr, char amount) {
+void MP3Driver::playRandom(char folderNr, char trackAmount) {
     // Play a random track from specified folder
-    play(folderNr,randomNumber(1,amount));
+    play(folderNr,randomNumber(1,trackAmount));
 }
 
 bool MP3Driver::isPlaying() {

@@ -189,7 +189,6 @@ void Statemachine::stateProcess()
     if (dataReady == true)
     {
         bool isplaying = mp3Driver.isPlaying();
-        ESP_LOGI("Audio is playing", "%s", (isplaying ? "true" : "false"));
         // Dont add readings from speaker
         if (isplaying == false) {
             ESP_LOGI("Volume","%d",volume);
@@ -309,27 +308,28 @@ void Statemachine::audioFeedback()
         
         ESP_LOGI("Average Volume", "%lf", volumeQueue.average());
         ESP_LOGI("Average Frequency", "%lf", frequencyQueue.average());
-        // logic to give auditive feedback
-        //
-        if (feedbackState == frequencyOnLed && volumeQueue.average() <= thres_dB) 
-        {
-            mp3Driver.playRandom(FOLDER_VOLUME_GOOD, VOLUME_GOOD_FILES_AMOUNT);
-            ESP_LOGI("FEEDBACK", "VOLUME_GOOD");
-        }
-        else if (feedbackState == frequencyOnLed)
-        {
-            mp3Driver.playRandom(FOLDER_VOLUME_HIGHER, VOLUME_HIGHER_FILES_AMOUNT);
-            ESP_LOGI("FEEDBACK", "VOLUME_HIGHER");
-        }
-        else if (feedbackState == volumeOnLed && frequencyQueue.average() <= thres_Hz)
-        {
-            mp3Driver.playRandom(FOLDER_FREQUENCY_GOOD, FREQUENCY_GOOD_FILES_AMOUNT);
-            ESP_LOGI("FEEDBACK", "FREQUENCY_GOOD");
-        }
-        else if (feedbackState == volumeOnLed)
-        {
-            mp3Driver.playRandom(FOLDER_FREQUENCY_LOWER, FREQUENCY_LOWER_FILES_AMOUNT);
-            ESP_LOGI("FEEDBACK", "FREQUENCY_LOWER");
+
+        switch(feedbackState){
+        case frequencyOnLed:
+            if (volumeQueue.average() >= thres_dB) {
+                mp3Driver.playRandom(FOLDER_VOLUME_GOOD, VOLUME_GOOD_FILES_AMOUNT);
+                ESP_LOGI("FEEDBACK", "VOLUME_GOOD");
+            } 
+            else {
+                mp3Driver.playRandom(FOLDER_VOLUME_HIGHER, VOLUME_HIGHER_FILES_AMOUNT);
+                ESP_LOGI("FEEDBACK", "VOLUME_HIGHER");
+            }
+            break;
+        case volumeOnLed:
+            if (frequencyQueue.average() <= thres_Hz) {
+                mp3Driver.playRandom(FOLDER_FREQUENCY_GOOD, FREQUENCY_GOOD_FILES_AMOUNT);
+                ESP_LOGI("FEEDBACK", "FREQUENCY_GOOD");
+            } 
+            else {
+                mp3Driver.playRandom(FOLDER_FREQUENCY_LOWER, FREQUENCY_LOWER_FILES_AMOUNT);
+                ESP_LOGI("FEEDBACK", "FREQUENCY_LOWER");
+            }
+            break;
         }
     }
 }

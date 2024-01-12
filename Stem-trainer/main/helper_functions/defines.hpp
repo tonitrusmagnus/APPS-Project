@@ -9,7 +9,7 @@
 #define MEASURE_QUEUE_LENGTH 4
 
 // Starting values for thresholds on reset
-#define FREQUENCY_STARTVALUE 90
+#define FREQUENCY_STARTVALUE 100
 #define VOLUME_STARTVALUE 50
 
 // Microphone pins
@@ -40,11 +40,11 @@
 #define SERVO_MIN_ANGLE 0
 #define SERVO_MAX_ANGLE 110
 
-// Threshold values
+// Threshold extreme values
 #define HZ_THRES_MIN 50
 #define HZ_THRES_MAX 200
-#define DB_THRES_MIN 0
-#define DB_THRES_MAX 80
+#define DB_THRES_MIN 25
+#define DB_THRES_MAX 75
 
 // Calibration values
 #define DB_CALIBRATION_OFFSET 10

@@ -120,7 +120,7 @@ public:
      * @brief Constructor for the MP3Driver class.
      * @param TxPin GPIO pin connected to the TX pin of the MP3 player module.
      * @param RxPin GPIO pin connected to the RX pin of the MP3 player module.
-     * @param UartNum_ UART port used for communication.
+     * @param UartNum_ UART port number used for communication.
      * @param readTimeout_ Timeout time for reading from UART.
      */
     MP3Driver(gpio_num_t TxPin, gpio_num_t RxPin, uart_port_t UartNum_, int readTimeout_);
@@ -140,9 +140,9 @@ public:
     /**
      * @brief Plays a specified number of random tracks from a folder.
      * @param folderNr Folder number.
-     * @param amount Number of tracks in the folder to choose random from.
+     * @param trackAmount Number of tracks in the folder to choose random from.
      */
-    void playRandom(char folderNr, char amount);
+    void playRandom(char folderNr, char trackAmount);
 
     /**
      * @brief Stops playback.
