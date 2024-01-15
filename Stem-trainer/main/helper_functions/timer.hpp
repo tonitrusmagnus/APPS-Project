@@ -27,7 +27,7 @@ private:
     static void IRAM_ATTR timer_isr(void* arg);
 
     esp_timer_handle_t timer1; /**< ESP32 timer handle. */
-    int period; /**< Period of the timer in microseconds. */
+    int period; /**< Period of the timer in miliseconds. */
 
     /**
      * @brief Function called on timer interrupt.
@@ -37,7 +37,7 @@ private:
 public:
     /**
      * @brief Constructor for the Timer class.
-     * @param period_ The period of the timer in microseconds.
+     * @param period_ The period of the timer in miliseconds.
      */
     Timer(int period_);
 

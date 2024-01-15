@@ -48,9 +48,9 @@ double mapDouble(double value, double fromLow, double fromHigh, double toLow, do
 int randomNumber(int min, int max);
 
 /**
- * @brief Calculates the maximum possible value for an unsigned long based on the data size.
- * @param dataSize The size of the data.
- * @return The maximum value for an unsigned long.
+ * @brief Calculates the maximum representable value for a given data size.
+ * @param dataSize The size of the data in bytes.
+ * @return The maximum representable value for the given data size.
  */
 unsigned long maxValue(size_t dataSize);
 
