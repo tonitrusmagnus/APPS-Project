@@ -1,0 +1,8 @@
+<map id="IntQueue::IntQueue" name="IntQueue::IntQueue">
+<area shape="rect" id="Node000001" title="Constructor for the IntQueue class." alt="" coords="5,5,139,32"/>
+<area shape="rect" id="Node000002" href="$class_int_queue.html#a9186a847fd8dcb201739439a06a7b88f" title="Returns the current length of the queue." alt="" coords="373,5,489,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,16,357,16,357,21,139,21"/>
+<area shape="rect" id="Node000003" href="$class_int_queue.html#a16bb6e77ed99b7f71058fa5117957461" title="Sets the maximum length of the queue." alt="" coords="187,31,325,57"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="140,25,172,30,171,35,139,31"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="325,31,357,27,358,32,326,37"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="Statemachine::stateRelax" name="Statemachine::stateRelax">
+<area shape="rect" id="Node000001" title="Executes the relax state of the state machine." alt="" coords="5,31,177,57"/>
+<area shape="rect" id="Node000002" href="$class_m_p3_driver.html#abe832da05af226724f6daca6bca2e3b2" title="Plays a specified number of random tracks from a folder." alt="" coords="225,31,385,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,41,209,41,209,47,177,47"/>
+<area shape="rect" id="Node000003" href="$class_m_p3_driver.html#a786163666470c7353bc0ed08b4b06ee2" title="Plays a specific track from a specified folder." alt="" coords="433,5,545,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="385,30,417,26,418,31,386,36"/>
+<area shape="rect" id="Node000005" href="$helper__functions_8cpp.html#a221d185be3302082e06b9e004bb18c4b" title="Generates a random number within a specified range." alt="" coords="435,56,544,83"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="386,52,419,57,419,62,385,58"/>
+<area shape="rect" id="Node000004" href="$class_m_p3_driver.html#a7725c726b41f754b77b5eb7e7782e4f4" title="Sends data to the MP3 player module." alt="" coords="593,5,737,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="546,16,578,16,578,21,546,21"/>
+</map>

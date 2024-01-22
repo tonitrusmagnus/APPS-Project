@@ -1,0 +1,17 @@
+<map id="Statemachine" name="Statemachine">
+<area shape="rect" id="Node000001" title="Class for implementing a state machine control logic." alt="" coords="507,912,675,1381"/>
+<area shape="rect" id="Node000002" href="$class_int_queue.html" title="A queue implementation for integers with additional functionalities." alt="" coords="5,387,173,685"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,684,161,742,188,799,217,846,251,891,290,933,331,971,415,1038,494,1090,491,1094,412,1042,327,975,286,936,247,894,212,849,183,801,156,745,133,686"/>
+<area shape="rect" id="Node000003" href="$class_button.html" title="Button class with interrupt." alt="" coords="198,403,389,669"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="320,668,350,777,371,833,394,887,443,967,498,1040,494,1043,438,970,390,889,366,835,345,779,315,670"/>
+<area shape="rect" id="Node000004" href="$class_led_driver.html" title="Class representing a LED driver using the Max7312 IO expander." alt="" coords="413,451,541,621"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="496,621,547,895,541,896,490,622"/>
+<area shape="rect" id="Node000005" href="$class_max7312.html" title="Class for controlling the MAX7312 I/O expander through I2C." alt="" coords="402,5,553,208"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="480,207,480,434,475,434,475,207"/>
+<area shape="rect" id="Node000006" href="$class_leds.html" title="Class representing an LED and its control." alt="" coords="566,451,703,621"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="631,621,611,896,606,895,626,621"/>
+<area shape="rect" id="Node000007" href="$class_m_p3_driver.html" title="Class for controlling an MP3 player module using UART communication." alt="" coords="727,272,915,800"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="730,792,693,889,683,915,678,913,688,887,725,790"/>
+<area shape="rect" id="Node000008" href="$class_timer.html" title="Class for handling periodic timer events using ESP32 timers." alt="" coords="939,400,1095,672"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="987,673,962,738,930,801,876,878,814,950,750,1015,690,1069,686,1065,746,1011,810,947,872,875,926,799,958,736,982,671"/>
+</map>

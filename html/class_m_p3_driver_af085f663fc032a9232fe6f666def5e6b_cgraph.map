@@ -1,0 +1,7 @@
+<map id="MP3Driver::setVolume" name="MP3Driver::setVolume">
+<area shape="rect" id="Node000001" title="Sets the volume of the MP3 player." alt="" coords="5,31,156,57"/>
+<area shape="rect" id="Node000002" href="$helper__functions_8cpp.html#ad1df39875cf2b994ffaf33a6492b41ce" title="Constrains a value to be within a specified range." alt="" coords="238,5,313,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,32,223,23,223,28,156,37"/>
+<area shape="rect" id="Node000003" href="$class_m_p3_driver.html#a7725c726b41f754b77b5eb7e7782e4f4" title="Sends data to the MP3 player module." alt="" coords="204,56,347,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="156,51,188,55,188,61,156,56"/>
+</map>

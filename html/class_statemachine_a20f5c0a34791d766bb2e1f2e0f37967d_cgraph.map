@@ -1,0 +1,27 @@
+<map id="Statemachine::stateFeedback" name="Statemachine::stateFeedback">
+<area shape="rect" id="Node000001" title="Executes the feedback state of the state machine." alt="" coords="5,107,201,133"/>
+<area shape="rect" id="Node000002" href="$class_statemachine.html#ab26489aacd451f777d0a1a3ae5abf821" title="Provides audio feedback based on the feedback state." alt="" coords="249,56,447,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,103,265,84,266,89,172,109"/>
+<area shape="rect" id="Node000008" href="$class_statemachine.html#ac4b35a9f4cd0bc524c01899641b202c9" title="Provides visual feedback based on the feedback state." alt="" coords="249,132,447,159"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="201,127,233,131,233,136,201,133"/>
+<area shape="rect" id="Node000003" href="$class_int_queue.html#aa7cfd9493c89bc5d105335d6b1443d15" title="Calculates and returns the average value of the queue." alt="" coords="513,5,638,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="411,53,497,33,498,39,412,58"/>
+<area shape="rect" id="Node000004" href="$class_m_p3_driver.html#abe832da05af226724f6daca6bca2e3b2" title="Plays a specified number of random tracks from a folder." alt="" coords="495,56,655,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="447,67,479,67,479,72,447,72"/>
+<area shape="rect" id="Node000005" href="$class_m_p3_driver.html#a786163666470c7353bc0ed08b4b06ee2" title="Plays a specific track from a specified folder." alt="" coords="703,31,816,57"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="655,56,687,51,688,56,656,61"/>
+<area shape="rect" id="Node000007" href="$helper__functions_8cpp.html#a221d185be3302082e06b9e004bb18c4b" title="Generates a random number within a specified range." alt="" coords="705,81,814,108"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="656,78,690,82,689,88,655,83"/>
+<area shape="rect" id="Node000006" href="$class_m_p3_driver.html#a7725c726b41f754b77b5eb7e7782e4f4" title="Sends data to the MP3 player module." alt="" coords="864,31,1007,57"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="816,41,848,41,848,47,816,47"/>
+<area shape="rect" id="Node000009" href="$helper__functions_8cpp.html#ad1df39875cf2b994ffaf33a6492b41ce" title="Constrains a value to be within a specified range." alt="" coords="538,107,612,133"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="447,132,523,123,523,128,447,137"/>
+<area shape="rect" id="Node000010" href="$class_int_queue.html#ab70c52c50dd91a9c960b3a1ff7dfc5ff" title="Returns the latest value added to the queue." alt="" coords="519,157,632,184"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="447,154,503,160,503,165,447,159"/>
+<area shape="rect" id="Node000011" href="$class_led_driver.html#a633cfe98b2028cc3fadaf9c6d8e5d3b7" title="Sets the LED level to a specified value." alt="" coords="511,208,640,235"/>
+<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="389,157,496,193,517,200,515,205,494,199,387,162"/>
+<area shape="rect" id="Node000012" href="$helper__functions_8cpp.html#a1c151f73b2e802743ec4581d20f80e47" title="Calculates the maximum representable value for a given data size." alt="" coords="720,183,799,209"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="640,210,704,201,705,206,640,215"/>
+<area shape="rect" id="Node000013" href="$class_max7312.html#a72dde8d2f10dab0d37182e495f5470f0" title="Set the data to the MAX7312 I/O expander." alt="" coords="709,233,810,260"/>
+<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="640,228,694,235,693,240,640,233"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="Timer::init" name="Timer::init">
+<area shape="rect" id="Node000001" title="Initializes the timer." alt="" coords="5,5,84,32"/>
+<area shape="rect" id="Node000002" href="$class_timer.html#a6fa081458421c69f9b4330ac22cc3658" title="Timer ISR (Interrupt Service Routine) function." alt="" coords="132,5,243,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,16,116,16,116,21,84,21"/>
+<area shape="rect" id="Node000003" href="$class_timer.html#a22aaf6a9db44d9adb46d07c71b1cc5de" title="Function called on timer interrupt." alt="" coords="291,5,435,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="243,16,276,16,276,21,243,21"/>
+</map>

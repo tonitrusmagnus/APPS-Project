@@ -1,0 +1,21 @@
+<map id="C:/Users/markd/OneDrive &#45; HAN/school/project s3/APPS&#45;Project/Stem&#45;trainer/main/drivers/mp3_driver.cpp" name="C:/Users/markd/OneDrive &#45; HAN/school/project s3/APPS&#45;Project/Stem&#45;trainer/main/drivers/mp3_driver.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="382,5,581,80"/>
+<area shape="rect" id="Node000002" href="$mp3__driver_8hpp.html" title="Declaration of the MP3Driver class for controlling an MP3 player module using UART communication." alt="" coords="350,136,458,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="457,82,425,125,420,122,452,79"/>
+<area shape="rect" id="Node000009" href="$helper__functions_8hpp.html" title="Collection of helper functions for common tasks." alt="" coords="598,128,752,171"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="551,78,624,118,622,122,548,83"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,219,94,245"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="350,166,110,220,108,215,349,160"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="118,219,195,245"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="366,166,210,216,209,211,365,161"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="219,219,309,245"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="384,165,300,213,298,208,381,161"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="334,219,474,245"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="407,163,407,203,402,203,402,163"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="499,219,611,245"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="429,161,519,209,517,214,426,166"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="635,219,734,245"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="449,161,626,211,625,217,447,166"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="758,219,821,245"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="706,169,760,207,757,212,703,173"/>
+</map>

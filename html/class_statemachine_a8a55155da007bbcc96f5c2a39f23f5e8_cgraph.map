@@ -1,0 +1,25 @@
+<map id="Statemachine::stateProcess" name="Statemachine::stateProcess">
+<area shape="rect" id="Node000001" title="Executes the process state of the state machine." alt="" coords="5,157,192,184"/>
+<area shape="rect" id="Node000002" href="$class_int_queue.html#a34f0788d36e3b79d3f63dc255b6507b9" title="Adds a value to the queue." alt="" coords="269,5,371,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,155,162,101,198,69,238,42,253,34,255,39,241,46,201,73,165,104,113,159"/>
+<area shape="rect" id="Node000003" href="$class_button.html#a338b2af396a690d3a146312b4fb160e2" title="Get the flag status." alt="" coords="265,56,375,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="121,155,174,124,239,92,255,86,257,91,241,97,176,129,123,159"/>
+<area shape="rect" id="Node000004" href="$class_m_p3_driver.html#ab61319149bde5daf7092c22801c92e29" title="Checks if the MP3 player is currently playing." alt="" coords="249,107,391,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="160,154,243,135,244,140,161,159"/>
+<area shape="rect" id="Node000007" href="$class_m_p3_driver.html#a786163666470c7353bc0ed08b4b06ee2" title="Plays a specific track from a specified folder." alt="" coords="474,157,586,184"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="192,168,458,168,458,173,192,173"/>
+<area shape="rect" id="Node000008" href="$class_m_p3_driver.html#abe832da05af226724f6daca6bca2e3b2" title="Plays a specified number of random tracks from a folder." alt="" coords="240,208,400,235"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="161,182,244,201,243,207,160,187"/>
+<area shape="rect" id="Node000010" href="$class_timer.html#a9020542d73357a4eef512eefaf57524b" title="Resets the timer flag." alt="" coords="275,259,365,285"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="123,182,176,212,241,244,261,252,259,257,239,249,174,217,121,187"/>
+<area shape="rect" id="Node000011" href="$class_button.html#a6a0e827169c36e93ef5bdee0c8029140" title="Resets button flag to 0." alt="" coords="259,309,381,336"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="113,183,165,237,201,268,241,295,252,301,249,305,238,300,198,272,162,241,110,186"/>
+<area shape="rect" id="Node000005" href="$class_m_p3_driver.html#a3b2cf233846ab9e2a34c57249a6f1bd3" title="Reads feedback from the MP3 player module." alt="" coords="448,107,611,133"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="391,117,432,117,432,123,391,123"/>
+<area shape="rect" id="Node000006" href="$class_m_p3_driver.html#a7725c726b41f754b77b5eb7e7782e4f4" title="Sends data to the MP3 player module." alt="" coords="659,132,803,159"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="612,128,644,132,644,137,611,133"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="586,161,644,154,645,159,587,166"/>
+<area shape="poly" id="edge9_Node000008_Node000007" title=" " alt="" coords="378,205,458,185,459,190,379,210"/>
+<area shape="rect" id="Node000009" href="$helper__functions_8cpp.html#a221d185be3302082e06b9e004bb18c4b" title="Generates a random number within a specified range." alt="" coords="475,208,584,235"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="400,219,460,219,460,224,400,224"/>
+</map>

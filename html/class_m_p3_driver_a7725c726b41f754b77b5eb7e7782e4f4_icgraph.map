@@ -1,0 +1,42 @@
+<map id="MP3Driver::sendData" name="MP3Driver::sendData">
+<area shape="rect" id="Node000001" title="Sends data to the MP3 player module." alt="" coords="1419,240,1562,267"/>
+<area shape="rect" id="Node000002" href="$class_m_p3_driver.html#a3b2cf233846ab9e2a34c57249a6f1bd3" title="Reads feedback from the MP3 player module." alt="" coords="1207,101,1371,128"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1455,233,1309,131,1312,126,1458,229"/>
+<area shape="rect" id="Node000009" href="$class_m_p3_driver.html#a786163666470c7353bc0ed08b4b06ee2" title="Plays a specific track from a specified folder." alt="" coords="1233,189,1345,216"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="1419,238,1344,219,1346,214,1420,233"/>
+<area shape="rect" id="Node000014" href="$class_m_p3_driver.html#af085f663fc032a9232fe6f666def5e6b" title="Sets the volume of the MP3 player." alt="" coords="1214,291,1364,317"/>
+<area shape="poly" id="edge20_Node000001_Node000014" title=" " alt="" coords="1420,274,1346,293,1344,287,1419,268"/>
+<area shape="rect" id="Node000016" href="$class_m_p3_driver.html#abb52a0a12489d99b6c64f23d8d376405" title="Stops playback." alt="" coords="551,367,665,393"/>
+<area shape="poly" id="edge23_Node000001_Node000016" title=" " alt="" coords="1463,279,1422,308,1372,332,1274,359,1172,377,1071,389,971,395,794,396,665,388,665,383,794,390,971,390,1070,384,1172,372,1273,353,1370,327,1419,303,1460,274"/>
+<area shape="rect" id="Node000003" href="$class_m_p3_driver.html#ab61319149bde5daf7092c22801c92e29" title="Checks if the MP3 player is currently playing." alt="" coords="1009,63,1150,89"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1197,100,1150,92,1151,86,1198,95"/>
+<area shape="rect" id="Node000004" href="$class_statemachine.html#af96a685e54f2b71dbf6cf197bf4e388e" title="Runs the state machine." alt="" coords="335,189,462,216"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1024,60,924,32,861,20,792,11,721,8,649,13,578,27,512,53,491,66,473,82,443,120,421,159,407,190,403,188,416,157,438,117,469,78,488,62,509,48,577,22,648,7,721,3,793,6,862,15,925,27,1026,55"/>
+<area shape="rect" id="Node000007" href="$class_statemachine.html#a48296ff2205c48d154bebeedf1ccc281" title="Executes the calibration state of the state machine." alt="" coords="513,63,703,89"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="993,79,703,79,703,73,993,73"/>
+<area shape="rect" id="Node000008" href="$class_statemachine.html#a8a55155da007bbcc96f5c2a39f23f5e8" title="Executes the process state of the state machine." alt="" coords="759,113,946,140"/>
+<area shape="poly" id="edge8_Node000003_Node000008" title=" " alt="" coords="1002,96,916,115,915,110,1001,91"/>
+<area shape="rect" id="Node000005" href="$_apps__main_8cpp.html#a1590b6317e93c68df9d9c6defb0eae67" title="Runs the main state machine logic." alt="" coords="131,189,287,216"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="319,205,287,205,287,200,319,200"/>
+<area shape="rect" id="Node000006" href="$main_8cpp.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title=" " alt="" coords="5,189,83,216"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="115,205,83,205,83,200,115,200"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="540,97,512,110,456,151,414,191,411,187,452,147,509,106,537,92"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="744,132,631,141,511,161,468,175,429,191,427,186,466,170,510,156,630,135,744,126"/>
+<area shape="poly" id="edge18_Node000009_Node000004" title=" " alt="" coords="1218,205,463,205,463,200,1218,200"/>
+<area shape="poly" id="edge19_Node000009_Node000008" title=" " alt="" coords="1239,186,1159,161,1049,143,946,133,946,128,1050,138,1160,156,1241,181"/>
+<area shape="rect" id="Node000010" href="$class_m_p3_driver.html#abe832da05af226724f6daca6bca2e3b2" title="Plays a specified number of random tracks from a folder." alt="" coords="999,215,1159,241"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="1218,214,1160,221,1160,216,1217,209"/>
+<area shape="poly" id="edge15_Node000010_Node000008" title=" " alt="" coords="1033,210,883,143,885,138,1035,206"/>
+<area shape="rect" id="Node000011" href="$class_statemachine.html#ab26489aacd451f777d0a1a3ae5abf821" title="Provides audio feedback based on the feedback state." alt="" coords="754,215,951,241"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="984,231,952,231,952,225,984,225"/>
+<area shape="rect" id="Node000013" href="$class_statemachine.html#ac9614396dc96da19392492e134a04dcb" title="Executes the relax state of the state machine." alt="" coords="767,265,938,292"/>
+<area shape="poly" id="edge16_Node000010_Node000013" title=" " alt="" coords="1002,248,916,267,915,262,1001,243"/>
+<area shape="rect" id="Node000012" href="$class_statemachine.html#a20f5c0a34791d766bb2e1f2e0f37967d" title="Executes the feedback state of the state machine." alt="" coords="510,215,706,241"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="738,231,706,231,706,225,738,225"/>
+<area shape="poly" id="edge14_Node000012_Node000004" title=" " alt="" coords="495,217,463,213,463,208,495,212"/>
+<area shape="poly" id="edge17_Node000013_Node000004" title=" " alt="" coords="751,283,634,277,571,269,510,256,462,239,422,219,425,214,464,234,511,251,572,263,635,272,751,278"/>
+<area shape="rect" id="Node000015" href="$class_statemachine.html#a2bf5e7bc906d8eaff125ffdda61a8cdd" title="Executes the setup state of the state machine." alt="" coords="522,316,694,343"/>
+<area shape="poly" id="edge21_Node000014_Node000015" title=" " alt="" coords="1199,310,695,329,695,323,1199,305"/>
+<area shape="poly" id="edge22_Node000015_Node000004" title=" " alt="" coords="537,313,509,300,452,258,411,218,414,215,456,254,512,295,540,308"/>
+<area shape="poly" id="edge24_Node000016_Node000004" title=" " alt="" coords="535,370,509,357,471,324,441,284,404,218,408,215,445,282,475,320,512,352,538,365"/>
+</map>

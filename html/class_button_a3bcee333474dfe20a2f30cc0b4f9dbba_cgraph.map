@@ -1,0 +1,7 @@
+<map id="Button::init" name="Button::init">
+<area shape="rect" id="Node000001" title="Initializes the GPIO and interrupt handler for the button." alt="" coords="5,5,90,32"/>
+<area shape="rect" id="Node000002" href="$class_button.html#a94ca8e123538f5d312cd56617a947c05" title="Interrupt handler." alt="" coords="138,5,299,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,16,122,16,122,21,90,21"/>
+<area shape="rect" id="Node000003" href="$class_button.html#abfc8dfc8785a075d1f15053ad4440c69" title="Funtion called by interrupt on button press." alt="" coords="347,5,500,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="299,16,331,16,331,21,299,21"/>
+</map>

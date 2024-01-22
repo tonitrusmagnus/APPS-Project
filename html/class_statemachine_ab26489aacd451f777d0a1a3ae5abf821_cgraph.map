@@ -1,0 +1,13 @@
+<map id="Statemachine::audioFeedback" name="Statemachine::audioFeedback">
+<area shape="rect" id="Node000001" title="Provides audio feedback based on the feedback state." alt="" coords="5,31,203,57"/>
+<area shape="rect" id="Node000002" href="$class_int_queue.html#aa7cfd9493c89bc5d105335d6b1443d15" title="Calculates and returns the average value of the queue." alt="" coords="268,5,394,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,30,252,25,253,30,203,36"/>
+<area shape="rect" id="Node000003" href="$class_m_p3_driver.html#abe832da05af226724f6daca6bca2e3b2" title="Plays a specified number of random tracks from a folder." alt="" coords="251,56,411,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="203,52,236,56,235,61,203,58"/>
+<area shape="rect" id="Node000004" href="$class_m_p3_driver.html#a786163666470c7353bc0ed08b4b06ee2" title="Plays a specific track from a specified folder." alt="" coords="459,31,571,57"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="411,56,443,51,444,56,412,61"/>
+<area shape="rect" id="Node000006" href="$helper__functions_8cpp.html#a221d185be3302082e06b9e004bb18c4b" title="Generates a random number within a specified range." alt="" coords="461,81,570,108"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="412,78,445,82,445,88,411,83"/>
+<area shape="rect" id="Node000005" href="$class_m_p3_driver.html#a7725c726b41f754b77b5eb7e7782e4f4" title="Sends data to the MP3 player module." alt="" coords="619,31,763,57"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="572,41,604,41,604,47,572,47"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="IntQueue::setLength" name="IntQueue::setLength">
+<area shape="rect" id="Node000001" title="Sets the maximum length of the queue." alt="" coords="5,5,144,32"/>
+<area shape="rect" id="Node000002" href="$class_int_queue.html#a9186a847fd8dcb201739439a06a7b88f" title="Returns the current length of the queue." alt="" coords="192,5,308,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,16,176,16,176,21,144,21"/>
+</map>

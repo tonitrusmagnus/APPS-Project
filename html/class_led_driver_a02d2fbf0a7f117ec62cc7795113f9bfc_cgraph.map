@@ -1,0 +1,9 @@
+<map id="LedDriver::allOn" name="LedDriver::allOn">
+<area shape="rect" id="Node000001" title="Turns on all LEDs." alt="" coords="5,31,118,57"/>
+<area shape="rect" id="Node000002" href="$class_led_driver.html#a633cfe98b2028cc3fadaf9c6d8e5d3b7" title="Sets the LED level to a specified value." alt="" coords="166,31,295,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,41,150,41,150,47,118,47"/>
+<area shape="rect" id="Node000003" href="$helper__functions_8cpp.html#a1c151f73b2e802743ec4581d20f80e47" title="Calculates the maximum representable value for a given data size." alt="" coords="354,5,433,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="295,31,338,25,339,30,296,37"/>
+<area shape="rect" id="Node000004" href="$class_max7312.html#a72dde8d2f10dab0d37182e495f5470f0" title="Set the data to the MAX7312 I/O expander." alt="" coords="343,56,443,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="296,51,328,57,327,62,295,57"/>
+</map>

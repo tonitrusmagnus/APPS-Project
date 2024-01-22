@@ -1,0 +1,11 @@
+<map id="C:/Users/markd/OneDrive &#45; HAN/school/project s3/APPS&#45;Project/Stem&#45;trainer/main/drivers/max7312.cpp" name="C:/Users/markd/OneDrive &#45; HAN/school/project s3/APPS&#45;Project/Stem&#45;trainer/main/drivers/max7312.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="62,5,261,80"/>
+<area shape="rect" id="Node000002" href="$max7312_8hpp.html" title="Declaration of the Max7312 class for controlling the MAX7312 I/O expander through I2C." alt="" coords="112,128,211,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,80,164,112,159,112,159,80"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,203,96,229"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="143,157,84,196,81,192,140,153"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="120,203,203,229"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="164,155,164,187,159,187,159,155"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="228,203,303,229"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="181,153,236,191,233,196,178,157"/>
+</map>

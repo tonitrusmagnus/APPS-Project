@@ -1,0 +1,118 @@
+<map id="app_main" name="app_main">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,132,83,159"/>
+<area shape="rect" id="Node000002" href="$_apps__main_8cpp.html#a4f5553f2a1b55ee62b0401a3b565a155" title="Processes audio data and performs necessary computations." alt="" coords="140,132,278,159"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,143,124,143,124,148,83,148"/>
+<area shape="rect" id="Node000013" href="$_apps__main_8cpp.html#afea1e8b2cd74b6a25b94c16d30d79420" title="Reads audio data and updates the global variables accordingly." alt="" coords="151,81,267,108"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="82,131,148,110,150,115,84,136"/>
+<area shape="rect" id="Node000015" href="$_apps__main_8cpp.html#a1590b6317e93c68df9d9c6defb0eae67" title="Runs the main state machine logic." alt="" coords="131,461,287,488"/>
+<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="54,158,196,446,192,448,50,160"/>
+<area shape="rect" id="Node000003" href="$_apps__main_8cpp.html#aaa8d5912c4a7eea4a7adccb5ee7681f2" title=" " alt="" coords="365,132,450,159"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="278,143,349,143,349,148,278,148"/>
+<area shape="rect" id="Node000004" href="$_apps__main_8cpp.html#a14150c3284c77b56c8bbc248668ef79e" title=" " alt="" coords="365,81,450,108"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="263,129,349,107,350,112,265,134"/>
+<area shape="rect" id="Node000005" href="$_apps__main_8cpp.html#a0540d5b779e3043146fcef386d0c68da" title=" " alt="" coords="355,183,460,209"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="265,157,340,176,339,181,263,162"/>
+<area shape="rect" id="Node000006" href="$namespacedsp.html#a5fe394d9b7e7f3045086e62c37ed4cdd" title=" " alt="" coords="534,208,716,235"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="460,199,519,206,519,212,460,205"/>
+<area shape="rect" id="Node000007" href="$namespacedsp.html#a3e1b02c2bcfcb8ca9c55d30cd9604c2c" title=" " alt="" coords="566,259,684,285"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="439,207,528,244,552,252,550,257,526,249,437,212"/>
+<area shape="rect" id="Node000008" href="$namespacedsp.html#a3cd49aaae366310425c6923cd0709f88" title=" " alt="" coords="573,309,677,336"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="422,208,467,251,496,275,529,295,560,307,558,312,526,300,493,279,463,255,419,212"/>
+<area shape="rect" id="Node000009" href="$namespacedsp.html#ac0c58c2dcff0679ba83e886a9823b311" title=" " alt="" coords="545,5,705,32"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="459,181,478,169,490,153,496,138,500,106,504,74,512,58,525,42,531,38,534,42,529,46,516,61,510,76,505,107,501,139,494,156,481,173,462,186"/>
+<area shape="rect" id="Node000010" href="$namespacedsp.html#a8da59687e05de31361bb3849430ed5a5" title=" " alt="" coords="546,56,704,83"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="459,180,478,169,493,150,500,131,508,112,526,93,533,88,536,92,529,97,513,114,505,133,498,153,481,173,462,184"/>
+<area shape="rect" id="Node000011" href="$namespacedsp.html#aa64ae1d4ca461f32a0f8e2ca8660e840" title=" " alt="" coords="569,107,681,133"/>
+<area shape="poly" id="edge10_Node000005_Node000011" title=" " alt="" coords="449,180,478,168,502,155,526,143,553,134,555,139,528,148,504,160,480,173,451,185"/>
+<area shape="rect" id="Node000012" href="$class_statemachine.html#ace98228b27b22791d06c653463827da1" title="Sets the frequency and volume values for processing." alt="" coords="541,157,709,184"/>
+<area shape="poly" id="edge11_Node000005_Node000012" title=" " alt="" coords="460,187,526,179,526,185,460,193"/>
+<area shape="poly" id="edge13_Node000013_Node000003" title=" " alt="" coords="265,106,350,128,349,133,263,111"/>
+<area shape="poly" id="edge14_Node000013_Node000004" title=" " alt="" coords="267,92,349,92,349,97,267,97"/>
+<area shape="rect" id="Node000014" href="$class_microphone.html#a27f1ecfb50f282ef387d200d696b9e06" title="Attempt to read audio." alt="" coords="335,31,479,57"/>
+<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="263,78,337,59,338,64,265,83"/>
+<area shape="rect" id="Node000016" href="$class_statemachine.html#af96a685e54f2b71dbf6cf197bf4e388e" title="Runs the state machine." alt="" coords="344,765,471,792"/>
+<area shape="poly" id="edge17_Node000015_Node000016" title=" " alt="" coords="221,487,391,750,386,753,217,490"/>
+<area shape="rect" id="Node000017" href="$class_int_queue.html#a4c1de507532526419cc5304218cf2592" title="Clears all elements from the queue." alt="" coords="570,715,680,741"/>
+<area shape="poly" id="edge18_Node000016_Node000017" title=" " alt="" coords="467,762,555,742,556,747,468,767"/>
+<area shape="rect" id="Node000018" href="$class_button.html#a338b2af396a690d3a146312b4fb160e2" title="Get the flag status." alt="" coords="815,715,925,741"/>
+<area shape="poly" id="edge19_Node000016_Node000018" title=" " alt="" coords="457,790,512,802,579,810,652,809,687,804,722,795,736,787,745,778,755,768,769,758,799,744,802,749,772,762,758,772,749,782,739,792,724,800,688,809,652,815,579,815,511,807,456,795"/>
+<area shape="rect" id="Node000019" href="$class_int_queue.html#a01877f4df7dc4fb906e5bcc64b2efaa4" title="Returns the highest value in the queue." alt="" coords="563,461,687,488"/>
+<area shape="poly" id="edge20_Node000016_Node000019" title=" " alt="" coords="407,765,416,715,436,643,452,603,471,565,496,529,526,498,547,485,550,489,529,502,500,532,476,568,457,606,441,644,422,716,413,766"/>
+<area shape="rect" id="Node000020" href="$class_leds.html#acad5a73184069fa10ef8c1d23707549f" title="Inverts the current state of the LED. If the LED is on, it will be turned off, and vice versa." alt="" coords="576,512,674,539"/>
+<area shape="poly" id="edge21_Node000016_Node000020" title=" " alt="" coords="409,764,421,722,443,664,477,602,500,573,526,548,560,531,562,536,529,553,504,577,482,605,448,666,426,724,414,766"/>
+<area shape="rect" id="Node000021" href="$class_m_p3_driver.html#ab61319149bde5daf7092c22801c92e29" title="Checks if the MP3 player is currently playing." alt="" coords="799,1019,941,1045"/>
+<area shape="poly" id="edge22_Node000016_Node000021" title=" " alt="" coords="414,792,424,835,445,895,460,926,479,956,502,982,529,1004,558,1021,590,1033,657,1046,723,1049,784,1045,784,1050,724,1054,656,1052,588,1038,556,1026,526,1009,498,986,475,959,456,928,440,897,419,837,408,793"/>
+<area shape="rect" id="Node000024" href="$class_int_queue.html#a9186a847fd8dcb201739439a06a7b88f" title="Returns the current length of the queue." alt="" coords="567,563,683,589"/>
+<area shape="poly" id="edge25_Node000016_Node000024" title=" " alt="" coords="411,764,426,730,450,686,483,639,526,599,551,586,554,591,529,604,487,642,455,689,431,733,416,766"/>
+<area shape="rect" id="Node000025" href="$class_int_queue.html#ac546637e25680997285ef5bbf2623a59" title="Returns the lowest value in the queue." alt="" coords="566,613,684,640"/>
+<area shape="poly" id="edge26_Node000016_Node000025" title=" " alt="" coords="415,763,458,708,490,676,526,650,550,638,552,643,529,654,493,681,462,712,420,766"/>
+<area shape="rect" id="Node000026" href="$class_m_p3_driver.html#a786163666470c7353bc0ed08b4b06ee2" title="Plays a specific track from a specified folder." alt="" coords="1251,804,1363,831"/>
+<area shape="poly" id="edge27_Node000016_Node000026" title=" " alt="" coords="405,765,407,699,411,653,420,602,435,550,457,500,486,454,526,417,551,401,575,393,597,390,620,392,666,403,723,416,796,428,852,442,906,463,970,498,1022,532,1072,570,1163,653,1237,731,1287,790,1283,794,1233,735,1159,657,1069,574,1019,536,968,502,904,467,851,447,795,433,722,421,665,408,619,397,598,395,576,398,554,406,529,421,490,457,461,502,440,552,426,603,417,654,412,699,411,765"/>
+<area shape="rect" id="Node000027" href="$class_timer.html#a9020542d73357a4eef512eefaf57524b" title="Resets the timer flag." alt="" coords="825,512,915,539"/>
+<area shape="poly" id="edge29_Node000016_Node000027" title=" " alt="" coords="406,765,409,704,425,616,439,568,461,522,489,481,526,447,565,428,607,420,651,423,695,432,737,447,776,465,838,501,835,506,774,470,735,452,694,438,651,428,608,426,567,433,529,452,493,484,465,525,444,570,430,617,415,704,411,765"/>
+<area shape="rect" id="Node000028" href="$class_button.html#a6a0e827169c36e93ef5bdee0c8029140" title="Resets button flag to 0." alt="" coords="809,664,931,691"/>
+<area shape="poly" id="edge30_Node000016_Node000028" title=" " alt="" coords="471,784,527,786,591,784,658,773,721,751,736,740,745,727,754,714,769,700,794,689,796,694,772,705,758,717,749,730,740,744,724,756,659,778,592,789,527,791,471,789"/>
+<area shape="rect" id="Node000029" href="$class_timer.html#a3a8b5272198d029779dc9302a54305a8" title="Starts the timer." alt="" coords="581,664,669,691"/>
+<area shape="poly" id="edge31_Node000016_Node000029" title=" " alt="" coords="424,763,469,732,526,700,566,687,567,692,528,705,472,736,428,767"/>
+<area shape="rect" id="Node000030" href="$class_statemachine.html#a48296ff2205c48d154bebeedf1ccc281" title="Executes the calibration state of the state machine." alt="" coords="530,1095,720,1121"/>
+<area shape="poly" id="edge32_Node000016_Node000030" title=" " alt="" coords="414,791,426,838,448,906,482,980,504,1016,529,1049,552,1069,577,1085,575,1090,549,1073,525,1052,500,1019,478,983,443,907,421,840,409,793"/>
+<area shape="rect" id="Node000038" href="$class_statemachine.html#a20f5c0a34791d766bb2e1f2e0f37967d" title="Executes the feedback state of the state machine." alt="" coords="527,968,723,995"/>
+<area shape="poly" id="edge38_Node000016_Node000038" title=" " alt="" coords="417,791,432,823,457,865,489,909,529,947,550,959,547,964,526,951,485,913,452,868,427,826,412,794"/>
+<area shape="rect" id="Node000045" href="$class_statemachine.html#a8a55155da007bbcc96f5c2a39f23f5e8" title="Executes the process state of the state machine." alt="" coords="532,867,718,893"/>
+<area shape="poly" id="edge44_Node000016_Node000045" title=" " alt="" coords="431,790,475,818,528,846,562,859,560,864,526,850,472,822,428,795"/>
+<area shape="rect" id="Node000046" href="$class_statemachine.html#ac9614396dc96da19392492e134a04dcb" title="Executes the relax state of the state machine." alt="" coords="784,867,956,893"/>
+<area shape="poly" id="edge52_Node000016_Node000046" title=" " alt="" coords="418,791,435,817,459,849,491,880,528,903,580,918,622,918,666,911,722,903,787,894,788,899,723,908,667,916,623,924,579,924,526,908,488,884,455,852,430,820,414,794"/>
+<area shape="rect" id="Node000047" href="$class_statemachine.html#a2bf5e7bc906d8eaff125ffdda61a8cdd" title="Executes the setup state of the state machine." alt="" coords="539,1449,711,1476"/>
+<area shape="poly" id="edge54_Node000016_Node000047" title=" " alt="" coords="414,792,452,977,487,1114,530,1252,572,1354,612,1434,607,1437,567,1356,525,1254,482,1115,447,979,408,793"/>
+<area shape="rect" id="Node000061" href="$class_timer.html#a63f0eb44b27402196590a03781515dba" title="Stops the timer." alt="" coords="827,1677,913,1704"/>
+<area shape="poly" id="edge66_Node000016_Node000061" title=" " alt="" coords="412,792,422,921,445,1126,461,1236,480,1339,503,1425,530,1487,555,1524,580,1554,605,1577,631,1596,693,1627,772,1663,813,1677,811,1682,770,1668,690,1632,629,1600,602,1581,576,1558,551,1528,525,1489,498,1427,475,1340,455,1237,439,1127,417,921,407,793"/>
+<area shape="rect" id="Node000062" href="$class_m_p3_driver.html#abb52a0a12489d99b6c64f23d8d376405" title="Stops playback." alt="" coords="1250,1145,1364,1172"/>
+<area shape="poly" id="edge64_Node000016_Node000062" title=" " alt="" coords="412,792,417,854,433,945,448,995,469,1044,495,1091,529,1131,569,1165,612,1191,658,1212,706,1227,757,1237,809,1243,913,1244,1015,1233,1109,1215,1190,1195,1253,1175,1255,1180,1192,1200,1110,1221,1016,1239,914,1249,808,1249,756,1243,705,1232,656,1217,609,1196,565,1169,525,1135,491,1094,464,1047,443,996,428,946,411,854,406,793"/>
+<area shape="rect" id="Node000022" href="$class_m_p3_driver.html#a3b2cf233846ab9e2a34c57249a6f1bd3" title="Reads feedback from the MP3 player module." alt="" coords="1225,1019,1389,1045"/>
+<area shape="poly" id="edge23_Node000021_Node000022" title=" " alt="" coords="941,1029,1210,1029,1210,1035,941,1035"/>
+<area shape="rect" id="Node000023" href="$class_m_p3_driver.html#a7725c726b41f754b77b5eb7e7782e4f4" title="Sends data to the MP3 player module." alt="" coords="1437,1019,1580,1045"/>
+<area shape="poly" id="edge24_Node000022_Node000023" title=" " alt="" coords="1389,1029,1421,1029,1421,1035,1389,1035"/>
+<area shape="poly" id="edge28_Node000026_Node000023" title=" " alt="" coords="1323,829,1486,1005,1482,1009,1319,833"/>
+<area shape="poly" id="edge36_Node000030_Node000021" title=" " alt="" coords="663,1091,770,1055,796,1047,797,1052,771,1060,664,1097"/>
+<area shape="rect" id="Node000031" href="$class_int_queue.html#a34f0788d36e3b79d3f63dc255b6507b9" title="Adds a value to the queue." alt="" coords="819,1069,921,1096"/>
+<area shape="poly" id="edge33_Node000030_Node000031" title=" " alt="" coords="720,1096,803,1087,803,1092,721,1101"/>
+<area shape="rect" id="Node000032" href="$class_led_driver.html#ab851adf5def91487d6a627dd396e4af5" title="Turns off all LEDs." alt="" coords="814,1272,926,1299"/>
+<area shape="poly" id="edge34_Node000030_Node000032" title=" " alt="" coords="647,1120,839,1261,836,1265,644,1124"/>
+<area shape="rect" id="Node000036" href="$class_led_driver.html#a02d2fbf0a7f117ec62cc7795113f9bfc" title="Turns on all LEDs." alt="" coords="814,1171,926,1197"/>
+<area shape="poly" id="edge35_Node000030_Node000036" title=" " alt="" coords="672,1119,810,1163,809,1168,670,1124"/>
+<area shape="rect" id="Node000037" href="$class_int_queue.html#ab70c52c50dd91a9c960b3a1ff7dfc5ff" title="Returns the latest value added to the queue." alt="" coords="1041,968,1154,995"/>
+<area shape="poly" id="edge37_Node000030_Node000037" title=" " alt="" coords="690,1119,750,1128,821,1131,896,1125,933,1117,968,1106,1002,1086,1032,1060,1077,1006,1081,1009,1036,1064,1005,1090,970,1110,934,1123,897,1131,821,1137,750,1133,689,1125"/>
+<area shape="rect" id="Node000039" href="$class_statemachine.html#ab26489aacd451f777d0a1a3ae5abf821" title="Provides audio feedback based on the feedback state." alt="" coords="771,917,969,944"/>
+<area shape="poly" id="edge39_Node000038_Node000039" title=" " alt="" coords="693,965,787,945,788,950,694,970"/>
+<area shape="rect" id="Node000043" href="$class_statemachine.html#ac4b35a9f4cd0bc524c01899641b202c9" title="Provides visual feedback based on the feedback state." alt="" coords="771,968,969,995"/>
+<area shape="poly" id="edge42_Node000038_Node000043" title=" " alt="" coords="723,979,755,979,755,984,723,984"/>
+<area shape="rect" id="Node000041" href="$class_m_p3_driver.html#abe832da05af226724f6daca6bca2e3b2" title="Plays a specified number of random tracks from a folder." alt="" coords="1017,841,1177,868"/>
+<area shape="poly" id="edge40_Node000039_Node000041" title=" " alt="" coords="929,914,968,903,1049,872,1051,877,970,908,931,919"/>
+<area shape="poly" id="edge41_Node000041_Node000026" title=" " alt="" coords="1175,838,1235,827,1236,833,1176,843"/>
+<area shape="poly" id="edge43_Node000043_Node000037" title=" " alt="" coords="969,979,1025,979,1025,984,969,984"/>
+<area shape="poly" id="edge46_Node000045_Node000018" title=" " alt="" coords="690,864,721,846,737,825,744,803,751,781,769,758,798,741,801,745,772,762,756,783,749,805,742,827,724,850,692,868"/>
+<area shape="poly" id="edge47_Node000045_Node000021" title=" " alt="" coords="647,892,725,954,747,982,757,993,772,1004,786,1011,783,1016,769,1009,753,997,743,985,721,958,644,896"/>
+<area shape="poly" id="edge48_Node000045_Node000026" title=" " alt="" coords="658,864,710,845,770,829,898,813,1026,807,1143,807,1235,810,1235,815,1142,812,1026,812,898,819,771,835,712,850,660,869"/>
+<area shape="poly" id="edge50_Node000045_Node000027" title=" " alt="" coords="636,865,676,816,720,752,744,701,768,651,807,595,844,549,848,552,811,598,773,653,749,704,725,755,680,819,640,868"/>
+<area shape="poly" id="edge51_Node000045_Node000028" title=" " alt="" coords="645,864,683,835,721,796,735,770,741,746,749,723,769,701,794,687,796,691,772,705,754,726,746,748,740,772,725,799,686,839,648,868"/>
+<area shape="poly" id="edge45_Node000045_Node000031" title=" " alt="" coords="651,892,688,918,725,954,740,983,746,1009,754,1032,772,1055,805,1072,803,1077,769,1059,749,1035,741,1010,735,985,721,958,685,922,648,896"/>
+<area shape="poly" id="edge49_Node000045_Node000041" title=" " alt="" coords="691,863,770,852,891,847,1002,848,1002,853,891,852,771,857,692,869"/>
+<area shape="poly" id="edge53_Node000046_Node000041" title=" " alt="" coords="956,868,1001,863,1002,868,956,873"/>
+<area shape="poly" id="edge55_Node000047_Node000032" title=" " alt="" coords="633,1447,685,1381,724,1342,769,1308,798,1296,800,1301,772,1313,728,1346,689,1384,637,1451"/>
+<area shape="rect" id="Node000048" href="$class_m_p3_driver.html#a17677d49527c4ad67097c41e20a0e11c" title="Enables or disables feedback from the MP3 player module." alt="" coords="778,1323,962,1349"/>
+<area shape="poly" id="edge56_Node000047_Node000048" title=" " alt="" coords="640,1447,695,1404,731,1380,770,1359,786,1352,788,1357,772,1364,734,1384,698,1408,644,1451"/>
+<area shape="rect" id="Node000049" href="$class_button.html#a3bcee333474dfe20a2f30cc0b4f9dbba" title="Initializes the GPIO and interrupt handler for the button." alt="" coords="828,1373,912,1400"/>
+<area shape="poly" id="edge57_Node000047_Node000049" title=" " alt="" coords="663,1446,770,1409,812,1398,814,1403,771,1415,664,1451"/>
+<area shape="rect" id="Node000052" href="$class_led_driver.html#a575d1eb410ef202282d6be8f728bba96" title="Initializes the LED driver and IO expander." alt="" coords="820,1424,920,1451"/>
+<area shape="poly" id="edge58_Node000047_Node000052" title=" " alt="" coords="711,1451,804,1441,805,1447,712,1456"/>
+<area shape="rect" id="Node000054" href="$class_leds.html#a343c2d2ef1ea2060351dc51a4340fbec" title="Initializes the LED." alt="" coords="833,1475,907,1501"/>
+<area shape="poly" id="edge59_Node000047_Node000054" title=" " alt="" coords="712,1469,818,1480,817,1485,711,1474"/>
+<area shape="rect" id="Node000055" href="$class_m_p3_driver.html#add6b0ea52dc823213bd2de984bdf5191" title="Initializes the MP3 driver." alt="" coords="817,1525,923,1552"/>
+<area shape="poly" id="edge60_Node000047_Node000055" title=" " alt="" coords="664,1474,771,1511,803,1520,802,1525,770,1516,663,1479"/>
+<area shape="rect" id="Node000056" href="$class_timer.html#a00eca12a53538b339a927723a246e2d7" title="Initializes the timer." alt="" coords="831,1576,909,1603"/>
+<area shape="poly" id="edge61_Node000047_Node000056" title=" " alt="" coords="644,1475,698,1517,734,1541,772,1562,817,1577,815,1582,770,1566,731,1546,695,1522,640,1479"/>
+<area shape="rect" id="Node000059" href="$class_leds.html#a3222f48b4a8ce307b098d79dbf3e71ab" title="Sets the state of the LED." alt="" coords="817,1627,923,1653"/>
+<area shape="poly" id="edge62_Node000047_Node000059" title=" " alt="" coords="637,1475,689,1541,728,1580,772,1612,803,1626,800,1630,769,1617,724,1584,685,1545,633,1478"/>
+<area shape="poly" id="edge63_Node000047_Node000061" title=" " alt="" coords="639,1475,725,1595,746,1633,755,1648,772,1663,791,1674,813,1681,811,1686,789,1678,769,1668,751,1651,741,1635,720,1597,634,1478"/>
+<area shape="poly" id="edge65_Node000062_Node000023" title=" " alt="" coords="1329,1143,1471,1052,1474,1056,1331,1147"/>
+</map>

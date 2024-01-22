@@ -1,0 +1,9 @@
+<map id="task_read_audio" name="task_read_audio">
+<area shape="rect" id="Node000001" title="Reads audio data and updates the global variables accordingly." alt="" coords="5,56,122,83"/>
+<area shape="rect" id="Node000002" href="$_apps__main_8cpp.html#aaa8d5912c4a7eea4a7adccb5ee7681f2" title=" " alt="" coords="199,5,285,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,53,184,32,185,37,114,58"/>
+<area shape="rect" id="Node000003" href="$_apps__main_8cpp.html#a14150c3284c77b56c8bbc248668ef79e" title=" " alt="" coords="199,56,285,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="122,67,184,67,184,72,122,72"/>
+<area shape="rect" id="Node000004" href="$class_microphone.html#a27f1ecfb50f282ef387d200d696b9e06" title="Attempt to read audio." alt="" coords="170,107,314,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="114,81,179,99,177,105,113,86"/>
+</map>

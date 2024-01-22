@@ -1,0 +1,11 @@
+<map id="C:/Users/markd/OneDrive &#45; HAN/school/project s3/APPS&#45;Project/Stem&#45;trainer/main/helper_functions/queue.hpp" name="C:/Users/markd/OneDrive &#45; HAN/school/project s3/APPS&#45;Project/Stem&#45;trainer/main/helper_functions/queue.hpp">
+<area shape="rect" id="Node000001" title="Definition of the IntQueue class, a queue implementation for integers with additional functionalities..." alt="" coords="121,5,337,80"/>
+<area shape="rect" id="Node000002" href="$queue_8cpp.html" title=" " alt="" coords="5,128,221,203"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,93,150,129,146,126,181,90"/>
+<area shape="rect" id="Node000003" href="$statemachine_8hpp.html" title="Declaration of the Statemachine class for implementing a state machine control logic." alt="" coords="245,128,445,203"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="277,90,312,126,308,129,273,93"/>
+<area shape="rect" id="Node000004" href="$_apps__main_8cpp.html" title=" " alt="" coords="133,251,333,325"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="302,216,269,252,265,248,298,213"/>
+<area shape="rect" id="Node000005" href="$statemachine_8cpp.html" title=" " alt="" coords="357,251,557,325"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="392,213,425,248,421,252,388,216"/>
+</map>

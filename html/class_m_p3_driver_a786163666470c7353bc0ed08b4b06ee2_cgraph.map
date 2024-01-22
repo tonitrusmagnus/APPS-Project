@@ -1,0 +1,5 @@
+<map id="MP3Driver::play" name="MP3Driver::play">
+<area shape="rect" id="Node000001" title="Plays a specific track from a specified folder." alt="" coords="5,5,118,32"/>
+<area shape="rect" id="Node000002" href="$class_m_p3_driver.html#a7725c726b41f754b77b5eb7e7782e4f4" title="Sends data to the MP3 player module." alt="" coords="166,5,309,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,16,150,16,150,21,118,21"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="MP3Driver::getFeedback" name="MP3Driver::getFeedback">
+<area shape="rect" id="Node000001" title="Reads feedback from the MP3 player module." alt="" coords="5,5,169,32"/>
+<area shape="rect" id="Node000002" href="$class_m_p3_driver.html#a7725c726b41f754b77b5eb7e7782e4f4" title="Sends data to the MP3 player module." alt="" coords="217,5,360,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,16,201,16,201,21,169,21"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="IntQueue::latest" name="IntQueue::latest">
+<area shape="rect" id="Node000001" title="Returns the latest value added to the queue." alt="" coords="1000,31,1113,57"/>
+<area shape="rect" id="Node000002" href="$class_statemachine.html#a48296ff2205c48d154bebeedf1ccc281" title="Executes the calibration state of the state machine." alt="" coords="513,5,703,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="985,43,703,27,703,21,985,37"/>
+<area shape="rect" id="Node000006" href="$class_statemachine.html#ac4b35a9f4cd0bc524c01899641b202c9" title="Provides visual feedback based on the feedback state." alt="" coords="754,56,952,83"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="985,56,953,60,952,54,984,50"/>
+<area shape="rect" id="Node000003" href="$class_statemachine.html#af96a685e54f2b71dbf6cf197bf4e388e" title="Runs the state machine." alt="" coords="335,31,462,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="498,35,463,39,462,34,498,29"/>
+<area shape="rect" id="Node000004" href="$_apps__main_8cpp.html#a1590b6317e93c68df9d9c6defb0eae67" title="Runs the main state machine logic." alt="" coords="131,31,287,57"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="319,47,287,47,287,41,319,41"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title=" " alt="" coords="5,31,83,57"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="115,47,83,47,83,41,115,41"/>
+<area shape="rect" id="Node000007" href="$class_statemachine.html#a20f5c0a34791d766bb2e1f2e0f37967d" title="Executes the feedback state of the state machine." alt="" coords="510,56,706,83"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="738,72,706,72,706,67,738,67"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="495,58,463,54,463,49,495,53"/>
+</map>

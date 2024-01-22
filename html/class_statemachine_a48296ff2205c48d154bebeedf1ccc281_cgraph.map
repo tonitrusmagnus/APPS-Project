@@ -1,0 +1,24 @@
+<map id="Statemachine::stateCalibrate" name="Statemachine::stateCalibrate">
+<area shape="rect" id="Node000001" title="Executes the calibration state of the state machine." alt="" coords="5,107,195,133"/>
+<area shape="rect" id="Node000002" href="$class_int_queue.html#a34f0788d36e3b79d3f63dc255b6507b9" title="Adds a value to the queue." alt="" coords="262,5,365,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,104,177,74,242,42,256,36,258,41,244,46,179,79,126,108"/>
+<area shape="rect" id="Node000003" href="$class_led_driver.html#ab851adf5def91487d6a627dd396e4af5" title="Turns off all LEDs." alt="" coords="258,56,369,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,103,242,83,243,89,160,109"/>
+<area shape="rect" id="Node000007" href="$class_led_driver.html#a02d2fbf0a7f117ec62cc7795113f9bfc" title="Turns on all LEDs." alt="" coords="257,107,370,133"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="195,117,242,117,242,123,195,123"/>
+<area shape="rect" id="Node000008" href="$class_m_p3_driver.html#ab61319149bde5daf7092c22801c92e29" title="Checks if the MP3 player is currently playing." alt="" coords="243,157,384,184"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="160,131,240,151,239,156,159,137"/>
+<area shape="rect" id="Node000011" href="$class_int_queue.html#ab70c52c50dd91a9c960b3a1ff7dfc5ff" title="Returns the latest value added to the queue." alt="" coords="257,208,370,235"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="126,132,179,161,244,194,258,199,256,204,242,198,177,166,124,136"/>
+<area shape="rect" id="Node000004" href="$class_led_driver.html#a633cfe98b2028cc3fadaf9c6d8e5d3b7" title="Sets the LED level to a specified value." alt="" coords="449,81,578,108"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="370,74,434,82,433,87,369,79"/>
+<area shape="rect" id="Node000005" href="$helper__functions_8cpp.html#a1c151f73b2e802743ec4581d20f80e47" title="Calculates the maximum representable value for a given data size." alt="" coords="675,44,755,71"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="578,80,659,65,660,70,579,85"/>
+<area shape="rect" id="Node000006" href="$class_max7312.html#a72dde8d2f10dab0d37182e495f5470f0" title="Set the data to the MAX7312 I/O expander." alt="" coords="665,95,765,121"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="579,96,649,101,649,106,579,102"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="369,110,433,102,434,107,370,116"/>
+<area shape="rect" id="Node000009" href="$class_m_p3_driver.html#a3b2cf233846ab9e2a34c57249a6f1bd3" title="Reads feedback from the MP3 player module." alt="" coords="432,157,595,184"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="384,168,416,168,416,173,384,173"/>
+<area shape="rect" id="Node000010" href="$class_m_p3_driver.html#a7725c726b41f754b77b5eb7e7782e4f4" title="Sends data to the MP3 player module." alt="" coords="643,157,787,184"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="596,168,628,168,628,173,596,173"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Microphone::install_driver" name="Microphone::install_driver">
+<area shape="rect" id="Node000001" title="Try to install an I2S driver via ESP32&#39;s i2s_driver_install(), restart the ESP if not succesful." alt="" coords="217,5,347,48"/>
+<area shape="rect" id="Node000002" href="$class_microphone.html#a2d3d75e2628c40fc0a48c1f8c5cacd30" title=" " alt="" coords="5,13,169,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,29,169,29,169,24,201,24"/>
+</map>

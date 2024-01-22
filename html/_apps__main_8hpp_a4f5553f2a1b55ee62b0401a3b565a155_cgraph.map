@@ -1,0 +1,23 @@
+<map id="task_process_audio" name="task_process_audio">
+<area shape="rect" id="Node000001" title="Processes audio data and performs necessary computations." alt="" coords="5,107,143,133"/>
+<area shape="rect" id="Node000002" href="$_apps__main_8cpp.html#aaa8d5912c4a7eea4a7adccb5ee7681f2" title=" " alt="" coords="201,56,286,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,103,185,84,186,89,122,109"/>
+<area shape="rect" id="Node000003" href="$_apps__main_8cpp.html#a14150c3284c77b56c8bbc248668ef79e" title=" " alt="" coords="201,107,286,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="143,117,185,117,185,123,143,123"/>
+<area shape="rect" id="Node000004" href="$_apps__main_8cpp.html#a0540d5b779e3043146fcef386d0c68da" title=" " alt="" coords="191,157,296,184"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="122,131,183,150,181,155,121,137"/>
+<area shape="rect" id="Node000005" href="$namespacedsp.html#a5fe394d9b7e7f3045086e62c37ed4cdd" title=" " alt="" coords="344,5,525,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="279,155,294,144,310,118,316,93,323,67,330,55,342,42,348,38,351,42,346,46,335,58,328,69,321,94,315,120,298,147,282,159"/>
+<area shape="rect" id="Node000006" href="$namespacedsp.html#a3e1b02c2bcfcb8ca9c55d30cd9604c2c" title=" " alt="" coords="376,56,493,83"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="276,155,294,143,308,130,317,118,327,105,343,92,360,84,363,88,345,97,331,109,322,121,312,134,298,147,279,159"/>
+<area shape="rect" id="Node000007" href="$namespacedsp.html#a3cd49aaae366310425c6923cd0709f88" title=" " alt="" coords="383,107,486,133"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="296,154,367,135,369,140,297,159"/>
+<area shape="rect" id="Node000008" href="$namespacedsp.html#ac0c58c2dcff0679ba83e886a9823b311" title=" " alt="" coords="355,157,514,184"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="296,168,340,168,340,173,296,173"/>
+<area shape="rect" id="Node000009" href="$namespacedsp.html#a8da59687e05de31361bb3849430ed5a5" title=" " alt="" coords="356,208,513,235"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="297,182,368,201,367,206,296,187"/>
+<area shape="rect" id="Node000010" href="$namespacedsp.html#aa64ae1d4ca461f32a0f8e2ca8660e840" title=" " alt="" coords="379,259,491,285"/>
+<area shape="poly" id="edge9_Node000004_Node000010" title=" " alt="" coords="261,182,297,213,345,244,365,253,363,258,343,249,294,218,257,186"/>
+<area shape="rect" id="Node000011" href="$class_statemachine.html#ace98228b27b22791d06c653463827da1" title="Sets the frequency and volume values for processing." alt="" coords="351,309,518,336"/>
+<area shape="poly" id="edge10_Node000004_Node000011" title=" " alt="" coords="254,183,288,238,315,269,346,295,354,300,351,305,342,300,311,273,284,241,249,186"/>
+</map>

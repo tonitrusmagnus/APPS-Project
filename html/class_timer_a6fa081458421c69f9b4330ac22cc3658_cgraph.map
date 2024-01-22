@@ -1,0 +1,5 @@
+<map id="Timer::timer_isr" name="Timer::timer_isr">
+<area shape="rect" id="Node000001" title="Timer ISR (Interrupt Service Routine) function." alt="" coords="5,5,117,32"/>
+<area shape="rect" id="Node000002" href="$class_timer.html#a22aaf6a9db44d9adb46d07c71b1cc5de" title="Function called on timer interrupt." alt="" coords="165,5,309,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,16,150,16,150,21,117,21"/>
+</map>

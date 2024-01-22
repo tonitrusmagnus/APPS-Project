@@ -1,0 +1,5 @@
+<map id="MP3Driver::stop" name="MP3Driver::stop">
+<area shape="rect" id="Node000001" title="Stops playback." alt="" coords="5,5,119,32"/>
+<area shape="rect" id="Node000002" href="$class_m_p3_driver.html#a7725c726b41f754b77b5eb7e7782e4f4" title="Sends data to the MP3 player module." alt="" coords="167,5,310,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,16,151,16,151,21,119,21"/>
+</map>

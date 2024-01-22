@@ -1,0 +1,5 @@
+<map id="LedDriver" name="LedDriver">
+<area shape="rect" id="Node000001" title="Class representing a LED driver using the Max7312 IO expander." alt="" coords="17,272,145,443"/>
+<area shape="rect" id="Node000002" href="$class_max7312.html" title="Class for controlling the MAX7312 I/O expander through I2C." alt="" coords="5,5,156,208"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,208,83,255,78,255,78,208"/>
+</map>

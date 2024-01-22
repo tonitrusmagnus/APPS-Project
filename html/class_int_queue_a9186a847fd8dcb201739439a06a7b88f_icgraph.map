@@ -1,0 +1,14 @@
+<map id="IntQueue::length" name="IntQueue::length">
+<area shape="rect" id="Node000001" title="Returns the current length of the queue." alt="" coords="521,31,638,57"/>
+<area shape="rect" id="Node000002" href="$class_int_queue.html#ac5e88c2e19eb1cf857b6001d21cd4d6a" title="Constructor for the IntQueue class." alt="" coords="142,5,276,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="516,29,473,21,369,15,276,17,276,12,370,10,474,16,517,24"/>
+<area shape="rect" id="Node000003" href="$class_statemachine.html#af96a685e54f2b71dbf6cf197bf4e388e" title="Runs the state machine." alt="" coords="341,81,468,108"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="517,65,454,83,452,78,515,60"/>
+<area shape="rect" id="Node000006" href="$class_int_queue.html#a16bb6e77ed99b7f71058fa5117957461" title="Sets the maximum length of the queue." alt="" coords="335,31,473,57"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="505,47,474,47,474,41,505,41"/>
+<area shape="rect" id="Node000004" href="$_apps__main_8cpp.html#a1590b6317e93c68df9d9c6defb0eae67" title="Runs the main state machine logic." alt="" coords="131,81,287,108"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="325,97,288,97,288,92,325,92"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title=" " alt="" coords="5,81,83,108"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="115,97,83,97,83,92,115,92"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="319,36,275,30,276,25,320,30"/>
+</map>
